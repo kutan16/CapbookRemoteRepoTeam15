@@ -4,15 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class UserAccount {
 
 	@Id
 	private String emailId;
 	private String firstName,lastName,gender,mobileNo,dateOfBirth;
 	
-	public User() {}
+	public UserAccount() {}
 
-	public User(String emailId, String firstName, String lastName, String gender, String mobileNo, String dateOfBirth) {
+	public UserAccount(String emailId, String firstName, String lastName, String gender, String mobileNo, String dateOfBirth) {
 		super();
 		this.emailId = emailId;
 		this.firstName = firstName;
@@ -22,7 +22,7 @@ public class User {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public User(String firstName, String lastName, String gender, String mobileNo, String dateOfBirth) {
+	public UserAccount(String firstName, String lastName, String gender, String mobileNo, String dateOfBirth) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -58,7 +58,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserAccount other = (UserAccount) obj;
 		if (dateOfBirth == null) {
 			if (other.dateOfBirth != null)
 				return false;
