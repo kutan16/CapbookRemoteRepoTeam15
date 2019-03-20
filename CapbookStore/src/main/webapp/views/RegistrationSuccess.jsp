@@ -23,28 +23,20 @@ h1.h{
 	text:bold;
 }
 </style>
-<title>Insert title here</title>
 </head>
 <body>
 	<div align="center"  class="bg-light text-dark">
 	<h1 class="bg-dark text-white">CAPBOOK WEB APPLICATION</h1><br>
-		<h1>Welcome to CAPBOOK</h1><br>
-		<h2>If you are a new user then click REGISTER NOW to register your account to CAPBOOK</h2><br>
-		<h2>Existing users can LOGIN to CapBook using their existing login credentials</h2><br>
-		<h2> Click Here to <a href="RegistrationPage">REGISTER</a> your account </h2>
-		<h2> Click Here to <a href="LoginPage">LOGIN</a></h2>
-		
-		<!-- <table>
+		<h1>Welcome to CAPBOOK</h1>
+		<h2>Your Registration has been Successful</h2>
+		<h2>You can LOGIN to CapBook using your login credentials</h2>
+		<table>
 			<tr>
 				<td>Click Here to</td>
-				<td><a href="RegistrationPage">REGISTER</a></td>
-				<td>your account</td>
-			</tr></h2>
-			<tr>
-				<td>Click Here to</td>
-				<td><a href="LoginPage">LOGIN</a></td>
+				<td><a href="LoginPage">Login</a></td>
+				<td>to your account</td>
 			</tr>
-		</table> -->
+		</table>
 	</div>
 </body>
 </html>

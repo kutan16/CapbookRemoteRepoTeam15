@@ -31,7 +31,7 @@ h1.h{
 		<h2 class="bg-dark text-white">Enter your correct details to Register to Capbook</h2>
 		<table>
 			<form:form action="RegisterUser" method="post"
-				modelAttribute="user">
+				modelAttribute="userr">
 				<tr>
 					<td>First Name</td>
 					<td><form:input path="firstName" size="30" /></td>
@@ -41,29 +41,6 @@ h1.h{
 					<td>Last Name</td>
 					<td><form:input path="lastName" size="30" /></td>
 					<td><form:errors path="lastName" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td>EmailID</td>
-					<td><form:input path="emailID" size="30" /></td>
-					<td><form:errors path="emailID" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td>dateOfBirth</td>
-					<td><form:input path="dateOfBirth" size="30" /></td>
-					<td><form:errors path="dateOfBirth" cssClass="error" /></td>
-				</tr>
-
-				<tr>
-					<td>mobileNo</td>
-					<td><form:input path="mobileNo" size="30" /></td>
-					<td><form:errors path="mobileNo" cssClass="error" /></td>
-				</tr>
-				<tr>
-					<td>gender</td>
-					<td><form:input path="gender" type ="radio" value="male" size="30" />MALE</td>
-					<td><form:input path="gender" type ="radio" value="female" size="30" />FEMALE</td>
-					<td><form:input path="gender" type ="radio" value="transgender" size="30" />TRANSGENDER</td>
-					<td><form:errors path="gender" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Register Account" /></td>
