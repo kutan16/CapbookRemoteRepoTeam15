@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cg.capbook.beans.UserAccount;
+import com.cg.capbook.exceptions.EmailAlreadyExistException;
 import com.cg.capbook.services.UserServices;
 
 @Controller
@@ -18,10 +19,11 @@ public class UserServiceController {
 	@Autowired
 	private UserServices userServices;
 	
-	@RequestMapping("/RegisterUser")
-	public ModelAndView registerUser(@Valid@ModelAttribute UserAccount user,BindingResult result) {
-		if(result.hasErrors()) return new ModelAndView("RegistrationPage");
-		user=userServices.acceptUserDetails(user);
-		return new ModelAndView("RegistrationSuccessPage","user",user);
+	@RequestMapping("/registerUser")
+	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount,BindingResult result) throws EmailAlreadyExistException {
+		if(result.hasErrors())
+			return new ModelAndView("RegistrationPage");
+		userAccount=userServices.acceptUserDetails(userAccount);
+		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	}
 }

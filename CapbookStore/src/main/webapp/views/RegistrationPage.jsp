@@ -28,10 +28,10 @@ h1.h{
 <body>
 	<div align="center" class="bg-light text-dark">
 	<h1>WELCOME TO CAPBOOK REGISTRATION PAGE</h1>
-		<h2 class="bg-dark text-white">Enter your correct details to Register to Capbook</h2>
+		<h2 class="bg-dark text-white">Enter your correct details to Register to CapBook</h2>
 		<table>
-			<form:form action="RegisterUser" method="post"
-				modelAttribute="user">
+			<form:form action="registerUser" method="post"
+				modelAttribute="userAccount">
 				<tr>
 					<td>First Name</td>
 					<td><form:input path="firstName" size="30" /></td>
@@ -43,26 +43,34 @@ h1.h{
 					<td><form:errors path="lastName" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td>EmailID</td>
-					<td><form:input path="emailID" size="30" /></td>
-					<td><form:errors path="emailID" cssClass="error" /></td>
+					<td>Email Address</td>
+					<td><form:input path="emailId" size="30" /></td>
+					<td><form:errors path="emailId" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td>dateOfBirth</td>
+					<td>Date of Birth</td>
 					<td><form:input path="dateOfBirth" size="30" /></td>
 					<td><form:errors path="dateOfBirth" cssClass="error" /></td>
 				</tr>
 
 				<tr>
-					<td>mobileNo</td>
+					<td>Mobile Number</td>
 					<td><form:input path="mobileNo" size="30" /></td>
 					<td><form:errors path="mobileNo" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td>gender</td>
-					<td><form:input path="gender" type ="radio" value="male" size="30" />MALE</td>
-					<td><form:input path="gender" type ="radio" value="female" size="30" />FEMALE</td>
-					<td><form:input path="gender" type ="radio" value="transgender" size="30" />TRANSGENDER</td>
+					<td>Gender</td>
+				</tr>
+				<tr>
+					<td><form:radiobutton path="gender" value="Male" size="30" />MALE</td>
+				</tr>
+				<tr>
+					<td><form:radiobutton path="gender" value="Female" size="30" />FEMALE</td>
+				</tr>
+				<tr>
+					<td><form:radiobutton path="gender" value="Other"  size="30" />Other</td>
+				</tr>
+				<tr>
 					<td><form:errors path="gender" cssClass="error" /></td>
 				</tr>
 				<tr>

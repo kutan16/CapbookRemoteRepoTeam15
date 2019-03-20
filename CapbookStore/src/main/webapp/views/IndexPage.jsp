@@ -31,7 +31,7 @@ h1.h{
 		<h1>Welcome to CAPBOOK</h1><br>
 		<h2>If you are a new user then click REGISTER NOW to register your account to CAPBOOK</h2><br>
 		<h2>Existing users can LOGIN to CapBook using their existing login credentials</h2><br>
-		<h2> Click Here to <a href="RegistrationPage">REGISTER</a> your account </h2>
+		<h2> Click Here to <a href="registrationPage">REGISTER</a> your account </h2>
 		<h2> Click Here to <a href="LoginPage">LOGIN</a></h2>
 		
 		<!-- <table>

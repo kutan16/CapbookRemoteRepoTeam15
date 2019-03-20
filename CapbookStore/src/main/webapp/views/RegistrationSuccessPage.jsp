@@ -27,16 +27,10 @@ h1.h{
 <body>
 	<div align="center"  class="bg-light text-dark">
 	<h1 class="bg-dark text-white">CAPBOOK WEB APPLICATION</h1><br>
-		<h1>Welcome to CAPBOOK</h1>
-		<h2>Your Registration has been Successful</h2>
-		<h2>You can LOGIN to CapBook using your login credentials</h2>
-		<table>
-			<tr>
-				<td>Click Here to</td>
-				<td><a href="LoginPage">Login</a></td>
-				<td>to your account</td>
-			</tr>
-		</table>
+		<h1>Welcome to CAPBOOK</h1><br>
+		<h2>Your Registration has been Successful</h2><br>
+		<h2>You can LOGIN to CapBook using your login credentials</h2><br>
+		<h2> Click Here to <a href="LoginPage">LOGIN</a></h2>
 	</div>
 </body>
 </html>

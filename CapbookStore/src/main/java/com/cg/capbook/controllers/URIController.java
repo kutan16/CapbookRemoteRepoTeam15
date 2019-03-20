@@ -15,7 +15,7 @@ public class URIController {
 		return "IndexPage";
 	}
 	
-	@RequestMapping("/RegistrationPage")
+	@RequestMapping("/registrationPage")
 	public String getRegistrationPage() {
 		return "RegistrationPage";
 	}
