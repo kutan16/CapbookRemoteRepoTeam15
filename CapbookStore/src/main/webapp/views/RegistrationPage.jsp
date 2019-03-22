@@ -23,6 +23,37 @@ h1.h{
 	color:green;
 	text:bold;
 }
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10004;";
+}
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10006;";
+}
 </style>
 </head>
 <body>
@@ -47,6 +78,14 @@ h1.h{
 					<td><form:input path="emailId" size="30" /></td>
 					<td><form:errors path="emailId" cssClass="error" /></td>
 				</tr>
+				<tr>
+					<td>Password</td>
+					<td><form:input type="password" class="password" path="password" size="30" /></td>
+					<td><form:errors path="password" cssClass="error" /></td>
+				</tr>
+				<div class="hide-show">
+        			<span>Show</span>
+     			 </div>
 				<tr>
 					<td>Date of Birth</td>
 					<td><form:input path="dateOfBirth" size="30" /></td>

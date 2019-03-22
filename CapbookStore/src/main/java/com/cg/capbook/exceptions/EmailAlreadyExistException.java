@@ -4,7 +4,7 @@ package com.cg.capbook.exceptions;
 public class EmailAlreadyExistException extends Exception{
 
 	public EmailAlreadyExistException() {
-		super("Email already exists");
+		super();
 		// TODO Auto-generated constructor stub
 	}
 

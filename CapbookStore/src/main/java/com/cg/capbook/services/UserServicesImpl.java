@@ -14,9 +14,9 @@ public class UserServicesImpl implements UserServices{
 	private UserAccount userAccount = new UserAccount();
 	
 	@Override
-	public UserAccount acceptUserDetails(UserAccount user) throws EmailAlreadyExistException {
+	public UserAccount acceptUserDetails(UserAccount user) {//throws EmailAlreadyExistException {
 		//input validation for same emailID
-		CheckUserDetails(userAccount.getEmailId());
+//		CheckUserDetails(userAccount.getEmailId());
 		return userDao.save(user);
 	}
 
