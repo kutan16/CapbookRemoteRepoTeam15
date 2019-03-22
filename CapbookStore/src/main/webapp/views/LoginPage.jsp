@@ -30,8 +30,8 @@ h1.h{
 	<h1>WELCOME TO CAPBOOK REGISTRATION PAGE</h1>
 		<h2 class="bg-dark text-white">Enter your correct details to Register to Capbook</h2>
 		<table>
-			<form:form action="LoginUser" method="post"
-				modelAttribute="login">
+			<form:form action="loginUser" method="post"
+				modelAttribute="userAccount">
 				<tr>
 					<td>User name/email Id</td>
 					<td><form:input path="emailId" size="30" /></td>

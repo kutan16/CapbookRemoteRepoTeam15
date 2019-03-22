@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import com.cg.capbook.beans.UserAccount;
 import com.cg.capbook.dao.UserDAO;
 import com.cg.capbook.exceptions.EmailAlreadyExistException;
+import com.cg.capbook.exceptions.UserNotFoundException;
 @Component("userServices")
 public class UserServicesImpl implements UserServices{
 
@@ -32,5 +33,4 @@ public class UserServicesImpl implements UserServices{
 			throw new EmailAlreadyExistException();
 		return true;
 	}
-
 }

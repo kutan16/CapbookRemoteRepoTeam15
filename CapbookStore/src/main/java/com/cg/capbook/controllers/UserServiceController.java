@@ -26,4 +26,12 @@ public class UserServiceController {
 		userAccount=userServices.acceptUserDetails(userAccount);
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	}
+	
+	@RequestMapping("/loginUser")
+	public ModelAndView loginUser(@Valid @ModelAttribute UserAccount userAccount,BindingResult result) throws EmailAlreadyExistException {
+		if(result.hasErrors())
+			return new ModelAndView("LoginPage");
+		userAccount=userServices.acceptUserDetails(userAccount);
+		return new ModelAndView("UserProfilePage","userAccount",userAccount);
+	}
 }
