@@ -33,18 +33,6 @@ h1.h{
 		<h2>Existing users can LOGIN to CapBook using their existing login credentials</h2><br>
 		<h2> Click Here to <a href="registrationPage">REGISTER</a> your account </h2>
 		<h2> Click Here to <a href="LoginPage">LOGIN</a></h2>
-		
-		<!-- <table>
-			<tr>
-				<td>Click Here to</td>
-				<td><a href="RegistrationPage">REGISTER</a></td>
-				<td>your account</td>
-			</tr></h2>
-			<tr>
-				<td>Click Here to</td>
-				<td><a href="LoginPage">LOGIN</a></td>
-			</tr>
-		</table> -->
 	</div>
 </body>
 </html>

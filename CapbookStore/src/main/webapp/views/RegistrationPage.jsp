@@ -80,7 +80,7 @@ h1.h{
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><form:input type="password" class="password" path="password" size="30" /></td>
+					<td><form:input class="password" path="password" size="30" /></td>
 					<td><form:errors path="password" cssClass="error" /></td>
 				</tr>
 				<div class="hide-show">

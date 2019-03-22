@@ -20,7 +20,7 @@ public class URIController {
 		return "RegistrationPage";
 	}
 	
-	@RequestMapping("/LoginPage")
+	@RequestMapping("/loginPage")
 	public String getLoginPage() {
 		return "LoginPage";
 	}

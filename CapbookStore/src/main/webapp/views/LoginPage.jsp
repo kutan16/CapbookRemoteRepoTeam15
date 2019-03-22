@@ -30,20 +30,20 @@ h1.h{
 	<h1>WELCOME TO CAPBOOK REGISTRATION PAGE</h1>
 		<h2 class="bg-dark text-white">Enter your correct details to Register to Capbook</h2>
 		<table>
-			<form:form action="RegisterUser" method="post"
-				modelAttribute="userr">
+			<form:form action="LoginUser" method="post"
+				modelAttribute="login">
 				<tr>
-					<td>First Name</td>
-					<td><form:input path="firstName" size="30" /></td>
-					<td><form:errors path="firstName" cssClass="error" /></td>
+					<td>User name/email Id</td>
+					<td><form:input path="emailId" size="30" /></td>
+					<td><form:errors path="emailId" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td>Last Name</td>
-					<td><form:input path="lastName" size="30" /></td>
-					<td><form:errors path="lastName" cssClass="error" /></td>
+					<td>Password</td>
+					<td><form:input type="password" path="password" size="30" /></td>
+					<td><form:errors path="password" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Register Account" /></td>
+					<td><input type="submit" value="Login" /></td>
 				</tr>
 			</form:form>
 		</table>
