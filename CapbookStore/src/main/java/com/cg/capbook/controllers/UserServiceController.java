@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,11 +28,9 @@ public class UserServiceController {
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	}
 	
-	@RequestMapping("/loginUser")
-	public ModelAndView loginUser(@Valid @ModelAttribute UserAccount userAccount,BindingResult result) throws EmailAlreadyExistException {
-		if(result.hasErrors())
-			return new ModelAndView("LoginPage");
-		userAccount=userServices.acceptUserDetails(userAccount);
-		return new ModelAndView("UserProfilePage","userAccount",userAccount);
-	}
+	@RequestMapping("/login/{emailId}/{password}")
+	public ModelAndView checkLogin( @PathVariable("emailId") String email,@PathVariable("password") String password){
+		return null;
+		
+	} 
 }
