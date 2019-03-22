@@ -5,17 +5,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Login {
+public class UserLogin {
 
 	@Id	
 	private String emailId;
 	private String password;
 
-	public Login(){
+	public UserLogin(){
 
 	}
 
-	public Login(String emailId, String password) {
+	public UserLogin(String emailId, String password) {
 		super();
 		this.emailId = emailId;
 		this.password = password;

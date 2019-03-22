@@ -5,13 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import com.cg.capbook.beans.Login;
+import com.cg.capbook.beans.UserLogin;
 
 @Transactional
-public interface LoginDAO extends JpaRepository<Login, String>{
+public interface LoginDAO extends JpaRepository<UserLogin, String>{
 	
 	 @Query("from Login  where emailId=:emailId ")
-	    public Login findByUsername(@Param("emailId") String emailId);
+	    public UserLogin findByUsername(@Param("emailId") String emailId);
 	 
 	 @Query("select l.password from Login l where l.emailId=:emailId")
 	 public String getPasswordByEmail(@Param("emailId")String emailId);

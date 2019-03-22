@@ -1,7 +1,7 @@
 package com.cg.capbook.services;
 
-import com.cg.capbook.beans.Login;
+import com.cg.capbook.beans.UserLogin;
 
 public interface LoginService {
-	Boolean checkUser(Login login);
+	Boolean checkUser(UserLogin login);
 }

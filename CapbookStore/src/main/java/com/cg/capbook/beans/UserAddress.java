@@ -2,12 +2,12 @@ package com.cg.capbook.beans;
 
 import javax.persistence.Embeddable;
 @Embeddable
-public class Address {
+public class UserAddress {
 	private String city;
 	private String state;
 	private String country;
 	private int zipCode;
-	public Address () {}
+	public UserAddress () {}
 	public String getCity() {
 		return city;
 	}
@@ -32,7 +32,7 @@ public class Address {
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
-	public Address(String city, String state, String country, int zipCode) {
+	public UserAddress(String city, String state, String country, int zipCode) {
 		super();
 		this.city = city;
 		this.state = state;

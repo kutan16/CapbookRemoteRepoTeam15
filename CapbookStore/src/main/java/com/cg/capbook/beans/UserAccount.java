@@ -14,20 +14,24 @@ public class UserAccount {
 	@Id
 	private String emailId;
 	private String firstName,lastName,gender,mobileNo,dateOfBirth,password;
+	
 	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
-	private List<Comment> comment;
+	private List<UserComment> ccomment;
+	
 	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
-	private List<Status> status;
+	private List<UserStatus> sstatus;
+	
 	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
-	private List<Photo> photo;
+	private List<UserPhoto> pphoto;
+	
 	@Embedded
-	private Data data;
+	private UserData data;
 	public UserAccount() {
 		super();
 	}
 	public UserAccount(String emailId, String firstName, String lastName, String gender, String mobileNo,
-			String dateOfBirth, String password, List<Comment> comment, List<Status> status, List<Photo> photo,
-			Data data) {
+			String dateOfBirth, String password, List<UserComment> comment, List<UserStatus> status, List<UserPhoto> photo,
+			UserData data) {
 		super();
 		this.emailId = emailId;
 		this.firstName = firstName;
@@ -36,9 +40,9 @@ public class UserAccount {
 		this.mobileNo = mobileNo;
 		this.dateOfBirth = dateOfBirth;
 		this.password = password;
-		this.comment = comment;
-		this.status = status;
-		this.photo = photo;
+		this.ccomment = comment;
+		this.sstatus = status;
+		this.pphoto = photo;
 		this.data = data;
 	}
 	public String getEmailId() {
@@ -83,35 +87,35 @@ public class UserAccount {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<Comment> getComment() {
-		return comment;
+	public List<UserComment> getComment() {
+		return ccomment;
 	}
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
+	public void setComment(List<UserComment> comment) {
+		this.ccomment = comment;
 	}
-	public List<Status> getStatus() {
-		return status;
+	public List<UserStatus> getStatus() {
+		return sstatus;
 	}
-	public void setStatus(List<Status> status) {
-		this.status = status;
+	public void setStatus(List<UserStatus> status) {
+		this.sstatus = status;
 	}
-	public List<Photo> getPhoto() {
-		return photo;
+	public List<UserPhoto> getPhoto() {
+		return pphoto;
 	}
-	public void setPhoto(List<Photo> photo) {
-		this.photo = photo;
+	public void setPhoto(List<UserPhoto> photo) {
+		this.pphoto = photo;
 	}
-	public Data getData() {
+	public UserData getData() {
 		return data;
 	}
-	public void setData(Data data) {
+	public void setData(UserData data) {
 		this.data = data;
 	}
 	@Override
 	public String toString() {
 		return "UserAccount [emailId=" + emailId + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
 				+ gender + ", mobileNo=" + mobileNo + ", dateOfBirth=" + dateOfBirth + ", password=" + password
-				+ ", comment=" + comment + ", status=" + status + ", photo=" + photo + ", data=" + data + "]";
+				+ ", comment=" + ccomment + ", status=" + sstatus + ", photo=" + pphoto + ", data=" + data + "]";
 	}
 	
 }

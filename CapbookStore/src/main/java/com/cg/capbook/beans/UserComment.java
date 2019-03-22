@@ -6,26 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 @Entity
-public class Comment {
+public class UserComment {
 	@Id
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	String commentId;
 	String comment;
 	@ManyToOne
-	private Photo photo;
+	private UserPhoto pphoto;
 	@ManyToOne
-	private Status status;
+	private UserStatus sstatus;
 	@ManyToOne
 	UserAccount userAccount;
-	public Comment() {
+	public UserComment() {
 		super();
 	}
-	public Comment(String commentId, String comment, Photo photo, Status status, UserAccount userAccount) {
+	public UserComment(String commentId, String comment, UserPhoto photo, UserStatus status, UserAccount userAccount) {
 		super();
 		this.commentId = commentId;
 		this.comment = comment;
-		this.photo = photo;
-		this.status = status;
+		this.pphoto = photo;
+		this.sstatus = status;
 		this.userAccount = userAccount;
 	}
 	public String getCommentId() {
@@ -40,17 +39,17 @@ public class Comment {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Photo getPhoto() {
-		return photo;
+	public UserPhoto getPhoto() {
+		return pphoto;
 	}
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setPhoto(UserPhoto photo) {
+		this.pphoto = photo;
 	}
-	public Status getStatus() {
-		return status;
+	public UserStatus getStatus() {
+		return sstatus;
 	}
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setStatus(UserStatus status) {
+		this.sstatus = status;
 	}
 	public UserAccount getUserAccount() {
 		return userAccount;
@@ -60,7 +59,7 @@ public class Comment {
 	}
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", comment=" + comment + ", photo=" + photo + ", status=" + status
+		return "Comment [commentId=" + commentId + ", comment=" + comment + ", photo=" + pphoto + ", status=" + sstatus
 				+ ", userAccount=" + userAccount + "]";
 	}
 	

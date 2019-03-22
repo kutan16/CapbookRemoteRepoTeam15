@@ -4,14 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Friend {
+public class UserFriend {
 	@Id
 	private int friendId;
 	private String friendName;
-	public Friend() {
+	public UserFriend() {
 		super();
 	}
-	public Friend(int friendId, String friendName) {
+	public UserFriend(int friendId, String friendName) {
 		super();
 		this.friendId = friendId;
 		this.friendName = friendName;
