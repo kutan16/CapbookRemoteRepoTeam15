@@ -1,6 +1,7 @@
 package com.cg.capbook.beans;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ public class UserPhoto {
 	private String emailId;
 	private String imageURL;
 	private File photoFile;
+	LocalDate dateOfPost;
 	@ManyToOne
 	UserAccount userAccount;
 	

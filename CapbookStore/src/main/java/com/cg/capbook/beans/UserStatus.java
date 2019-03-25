@@ -1,4 +1,5 @@
 package com.cg.capbook.beans;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,7 @@ public class UserStatus {
 	@Id
 	String emailId;
 	String status;
+	LocalDate dateOfPost;
 	@ManyToOne
 	 UserAccount userAccount;
 	
