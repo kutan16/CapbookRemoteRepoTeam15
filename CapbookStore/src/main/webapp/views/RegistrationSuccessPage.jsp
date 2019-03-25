@@ -34,7 +34,7 @@ h1.h{
 		<h2 class="s">Your Registration has been Successful</h2><br>
 		<h2>You can LOGIN to CapBook using your login credentials</h2><br>
 		<h2> Click Here to <a href="loginPage">LOGIN</a></h2>
-		<h2>Click Here to <a href="index">Return to Home Page</a></h2>\
+		<h2>Click Here to <a href="index">Return to Home Page</a></h2>
 	</div>
 </body>
 </html>

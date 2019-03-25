@@ -45,6 +45,9 @@ h1.h{
 				<tr>
 					<td><input type="submit" value="Login" /></td>
 				</tr>
+				<tr>
+					<td><a href="forgetPassword">Forgot Password</a></td>
+				</tr>
 			</form:form>
 		</table>
 	</div>

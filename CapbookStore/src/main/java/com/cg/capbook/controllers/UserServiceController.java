@@ -23,9 +23,11 @@ public class UserServiceController {
 	private UserServices userServices;
 	
 	@RequestMapping("/registerUser")
-	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount,BindingResult result) throws EmailAlreadyExistException {
+	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount,String password,BindingResult result) throws EmailAlreadyExistException {
 		if(result.hasErrors())
 			return new ModelAndView("RegistrationPage");
+		String encryptPassword = "abc" + password + "def";
+		userAccount.setPassword(encryptPassword);
 		userAccount=userServices.acceptUserDetails(userAccount);
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	} 
@@ -34,11 +36,11 @@ public class UserServiceController {
 	public ModelAndView forgotPassword(@RequestParam String emailId, @RequestParam String question,
 			@RequestParam String password) throws Exception {
 		UserAccount userAccount = userServices.findAccountByEmailId(emailId);
-		if (userAccount.getsecurityQuestion().equalsIgnoreCase(question)) {
+		if (userAccount.getSecurityQuestion().equalsIgnoreCase(question)) {
 			String encryptPassword = "abc" + password + "def";
 			userAccount.setPassword(encryptPassword);
 			userAccount = userServices.acceptUserDetails(userAccount);
-			return new ModelAndView("forgotPasswordSuccessPage", "UserAccount", userAccount);
+			return new ModelAndView("forgetPasswordSuccessPage", "UserAccount", userAccount);
 
 		} else
 			return new ModelAndView("errorPage", "error", userAccount);

@@ -20,7 +20,7 @@ public class LoginController {
 	    UserAccount userAccount = userServices.validateUser(userLogin);
 	    boolean isValidUser = false;
 	    if (null != userAccount && userAccount.getEmailId().equals(userLogin.getEmailId())
-	        && userAccount.getPassword().equals(userLogin.getPassword())) {
+	        && userAccount.getPassword().equals("abc"+userLogin.getPassword()+"def")) {
 	      isValidUser = true;
 	      model.addAttribute("emailId", userAccount.getEmailId());
 	    }

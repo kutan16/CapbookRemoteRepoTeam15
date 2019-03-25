@@ -148,7 +148,7 @@ height:750px;
 	width:100%;
 	height:80px;
 	background:#4e4848;
-    top:650px;
+    top:750px;
 	left:0px;
 	color:white;
 	z-index:20;
@@ -189,7 +189,7 @@ height:750px;
 					placeholder="Password" />
 				<br>
 				<form:errors path="password" cssClass="error" />
-				<div id="forget">forget password?</div>
+				<div id="forget"><a href="forgetPassword">Forgot Password?</a></div>
 			</div><br>
 			<div id="submit1" class="header">
 				<input type="submit" id="submit1" value="Sign in" />
@@ -236,6 +236,11 @@ height:750px;
 				<br>
 				<br>
 				<form:errors path="mobileNo" cssClass="error" />
+				<div id="info3">What was the name of your first pet?</div>
+				<form:input path="securityQuestion" style="width:350px; height:30px;" />
+				<br>
+				<br>
+				<form:errors path="securityQuestion" cssClass="error" />
 				<div id="info3">Gender</div>
 				<form:radiobutton path="gender" value="Male" style="width:50px; height:30px;" />MALE
 				<form:radiobutton path="gender" value="Female" style="width:50px; height:30px;" />FEMALE

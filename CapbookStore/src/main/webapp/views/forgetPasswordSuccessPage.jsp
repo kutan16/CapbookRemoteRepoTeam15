@@ -4,7 +4,8 @@
 <html>
 	<body>
 		Your Password have been successfully changed.
-		<a href="/" >Login</a>
+		<h2>Click Here to <a href="index">Return to Home Page</a></h2>
+		<h2> Click Here to <a href="loginPage">LOGIN</a></h2>
 	</body>
 
 </html>

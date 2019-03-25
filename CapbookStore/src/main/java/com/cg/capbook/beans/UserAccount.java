@@ -36,7 +36,7 @@ public class UserAccount {
 	@NotEmpty
 	private String password;
 	
-	String securityQuestion;
+	private String securityQuestion;
 	
 	private LocalDate currentDate;
 	
@@ -138,14 +138,6 @@ public class UserAccount {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getsecurityQuestion() {
-		return securityQuestion;
-	}
-
-	public void setsecurityQuestion(String securityQuestion) {
-		this.securityQuestion = securityQuestion;
 	}
 
 	public LocalDate getCurrentDate() {
