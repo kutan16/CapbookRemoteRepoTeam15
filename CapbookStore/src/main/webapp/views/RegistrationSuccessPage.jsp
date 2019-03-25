@@ -22,13 +22,16 @@ h1.h{
 	color:green;
 	text:bold;
 }
+.s{
+	color:blue;
+}
 </style>
 </head>
 <body>
 	<div align="center"  class="bg-light text-dark">
 	<h1 class="bg-dark text-white">CAPBOOK WEB APPLICATION</h1><br>
 		<h1>Welcome to CAPBOOK</h1><br>
-		<h2>Your Registration has been Successful</h2><br>
+		<h2 class="s">Your Registration has been Successful</h2><br>
 		<h2>You can LOGIN to CapBook using your login credentials</h2><br>
 		<h2> Click Here to <a href="LoginPage">LOGIN</a></h2>
 	</div>

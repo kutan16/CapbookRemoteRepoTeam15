@@ -31,7 +31,7 @@ h1.h{
 		<h2 class="bg-dark text-white">Enter your correct details to Register to Capbook</h2>
 		<table>
 			<form:form action="loginUser" method="post"
-				modelAttribute="userAccount">
+				modelAttribute="userLogin">
 				<tr>
 					<td>User name/email Id</td>
 					<td><form:input path="emailId" size="30" /></td>
