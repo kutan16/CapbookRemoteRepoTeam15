@@ -1,9 +1,14 @@
 package com.cg.capbook.beans;
 
+import java.io.File;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -31,21 +36,25 @@ public class UserAccount {
 	@NotEmpty
 	private String password;
 	
+	private LocalDate currentDate;
 	
-//	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
-//	private List<UserComment> ccomment;
-//	
-//	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
-//	private List<UserStatus> sstatus;
-//	
-//	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
-//	private List<UserPhoto> pphoto;
+	File profilePictureFile;
 	
-//	@Embedded
-//	private UserData data;
+	@Embedded
+	private UserData data;
 	
-//	private Date creationDate;
-
+	@OneToMany(mappedBy="userAccount")
+	private List<UserPhoto> userPhotos;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserStatus> userStatus;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserFriend> userFriend;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserFriendRequest> friendRequest;
+	
 	public UserAccount() {
 		super();
 	}
@@ -60,6 +69,62 @@ public class UserAccount {
 		this.mobileNo = mobileNo;
 		this.dateOfBirth = dateOfBirth;
 		this.password = password;
+	}
+
+	public LocalDate getCurrentDate() {
+		return currentDate;
+	}
+
+	public void setCurrentDate(LocalDate currentDate) {
+		this.currentDate = currentDate;
+	}
+
+	public File getProfilePictureFile() {
+		return profilePictureFile;
+	}
+
+	public void setProfilePictureFile(File profilePictureFile) {
+		this.profilePictureFile = profilePictureFile;
+	}
+
+	public UserData getData() {
+		return data;
+	}
+
+	public void setData(UserData data) {
+		this.data = data;
+	}
+
+	public List<UserPhoto> getUserPhotos() {
+		return userPhotos;
+	}
+
+	public void setUserPhotos(List<UserPhoto> userPhotos) {
+		this.userPhotos = userPhotos;
+	}
+
+	public List<UserStatus> getUserStatus() {
+		return userStatus;
+	}
+
+	public void setUserStatus(List<UserStatus> userStatus) {
+		this.userStatus = userStatus;
+	}
+
+	public List<UserFriend> getUserFriend() {
+		return userFriend;
+	}
+
+	public void setUserFriend(List<UserFriend> userFriend) {
+		this.userFriend = userFriend;
+	}
+
+	public List<UserFriendRequest> getFriendRequest() {
+		return friendRequest;
+	}
+
+	public void setFriendRequest(List<UserFriendRequest> friendRequest) {
+		this.friendRequest = friendRequest;
 	}
 
 	public String getEmailId() {

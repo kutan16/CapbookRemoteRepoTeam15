@@ -3,12 +3,18 @@ package com.cg.capbook.beans;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
 @Entity
-public class UserFriend {
+public class UserTag {
 	@Id
-	String EmailId;
+	String emailId;
 	@ManyToOne
-	UserAccount userAccount;
+	UserPhoto userPhoto;
+	
+	@ManyToOne
+	UserStatus userStatus;
+	
+	public UserTag() {
+		super();
+	}
+
 }
