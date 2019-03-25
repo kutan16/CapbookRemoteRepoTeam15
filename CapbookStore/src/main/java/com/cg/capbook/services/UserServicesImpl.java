@@ -1,5 +1,6 @@
 package com.cg.capbook.services;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,20 +35,16 @@ public class UserServicesImpl implements UserServices{
 		return true;
 	}
 
-	@Override
-	public UserAccount getUserDetails(String emailId) throws UserNotFoundException {
-		return userDao.findById(emailId).orElseThrow(()->new UserNotFoundException("user not found"));
-	}
-
 	public UserAccount validateUser(UserLogin login) {
 	    return userDao.findById(login.getEmailId()).get();
 	  }
 
 	@Override
 	public UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException {
-
 		return userDao.findById(emailId).orElseThrow(()->new UserNotFoundException("user not found"));
 	}
-	
-	
+	@Override
+	public String hashPassword(String plainTextPassword){
+		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+	}
 }

@@ -10,7 +10,7 @@ public interface UserServices {
 	UserAccount acceptUserDetails(UserAccount user) throws EmailAlreadyExistException;
 	boolean removeUserDetails(String emailId);
 	boolean CheckUserDetails(String emailId) throws EmailAlreadyExistException;
-	UserAccount getUserDetails(String emailId)throws UserNotFoundException;
 	UserAccount validateUser(UserLogin login);
 	UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException;
+	String hashPassword(String plainTextPassword);
 }

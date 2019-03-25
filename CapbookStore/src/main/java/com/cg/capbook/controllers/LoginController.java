@@ -26,7 +26,5 @@ public class LoginController {
 	    }
 	    return isValidUser ? "userProfilePage" : "loginPage";
 	  }
-	  
-	  
 }
 

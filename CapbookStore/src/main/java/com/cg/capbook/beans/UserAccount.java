@@ -35,7 +35,7 @@ public class UserAccount {
 	private Date dateOfBirth;
 	@NotEmpty
 	private String password;
-	@NotEmpty 
+	
 	String securityQuestion;
 	
 	private LocalDate currentDate;
@@ -204,126 +204,12 @@ public class UserAccount {
 		this.friendRequest = friendRequest;
 	}
 
-	@Override
-	public String toString() {
-		return "UserAccount [emailId=" + emailId + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
-				+ gender + ", mobileNo=" + mobileNo + ", dateOfBirth=" + dateOfBirth + ", password=" + password
-				+ ", securityQuestion=" + securityQuestion + ", currentDate=" + currentDate
-				+ ", profilePictureFile=" + profilePictureFile + ", data=" + data + ", userPhotos=" + userPhotos
-				+ ", userStatus=" + userStatus + ", userFriend=" + userFriend + ", friendRequest=" + friendRequest
-				+ "]";
+	public String getSecurityQuestion() {
+		return securityQuestion;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((currentDate == null) ? 0 : currentDate.hashCode());
-		result = prime * result + ((data == null) ? 0 : data.hashCode());
-		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
-		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + ((friendRequest == null) ? 0 : friendRequest.hashCode());
-		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
-		result = prime * result + ((securityQuestion == null) ? 0 : securityQuestion.hashCode());
-		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + ((mobileNo == null) ? 0 : mobileNo.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((profilePictureFile == null) ? 0 : profilePictureFile.hashCode());
-		result = prime * result + ((userFriend == null) ? 0 : userFriend.hashCode());
-		result = prime * result + ((userPhotos == null) ? 0 : userPhotos.hashCode());
-		result = prime * result + ((userStatus == null) ? 0 : userStatus.hashCode());
-		return result;
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserAccount other = (UserAccount) obj;
-		if (currentDate == null) {
-			if (other.currentDate != null)
-				return false;
-		} else if (!currentDate.equals(other.currentDate))
-			return false;
-		if (data == null) {
-			if (other.data != null)
-				return false;
-		} else if (!data.equals(other.data))
-			return false;
-		if (dateOfBirth == null) {
-			if (other.dateOfBirth != null)
-				return false;
-		} else if (!dateOfBirth.equals(other.dateOfBirth))
-			return false;
-		if (emailId == null) {
-			if (other.emailId != null)
-				return false;
-		} else if (!emailId.equals(other.emailId))
-			return false;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (!firstName.equals(other.firstName))
-			return false;
-		if (friendRequest == null) {
-			if (other.friendRequest != null)
-				return false;
-		} else if (!friendRequest.equals(other.friendRequest))
-			return false;
-		if (gender == null) {
-			if (other.gender != null)
-				return false;
-		} else if (!gender.equals(other.gender))
-			return false;
-		if (securityQuestion == null) {
-			if (other.securityQuestion != null)
-				return false;
-		} else if (!securityQuestion.equals(other.securityQuestion))
-			return false;
-		if (lastName == null) {
-			if (other.lastName != null)
-				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
-		if (mobileNo == null) {
-			if (other.mobileNo != null)
-				return false;
-		} else if (!mobileNo.equals(other.mobileNo))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (profilePictureFile == null) {
-			if (other.profilePictureFile != null)
-				return false;
-		} else if (!profilePictureFile.equals(other.profilePictureFile))
-			return false;
-		if (userFriend == null) {
-			if (other.userFriend != null)
-				return false;
-		} else if (!userFriend.equals(other.userFriend))
-			return false;
-		if (userPhotos == null) {
-			if (other.userPhotos != null)
-				return false;
-		} else if (!userPhotos.equals(other.userPhotos))
-			return false;
-		if (userStatus == null) {
-			if (other.userStatus != null)
-				return false;
-		} else if (!userStatus.equals(other.userStatus))
-			return false;
-		return true;
-	}
-
-
-
 
 }

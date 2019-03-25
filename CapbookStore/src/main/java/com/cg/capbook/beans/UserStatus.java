@@ -21,6 +21,62 @@ public class UserStatus {
 	@OneToMany(mappedBy="userStatus")
 	private List<UserLike> userLike;
 	
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public LocalDate getDateOfPost() {
+		return dateOfPost;
+	}
+
+	public void setDateOfPost(LocalDate dateOfPost) {
+		this.dateOfPost = dateOfPost;
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	public List<UserLike> getUserLike() {
+		return userLike;
+	}
+
+	public void setUserLike(List<UserLike> userLike) {
+		this.userLike = userLike;
+	}
+
+	public List<UserPostComment> getUserComment() {
+		return userComment;
+	}
+
+	public void setUserComment(List<UserPostComment> userComment) {
+		this.userComment = userComment;
+	}
+
+	public List<UserTag> getUserTag() {
+		return userTag;
+	}
+
+	public void setUserTag(List<UserTag> userTag) {
+		this.userTag = userTag;
+	}
+
 	@OneToMany(mappedBy="userStatus")
 	private List<UserPostComment> userComment;
 	
