@@ -42,4 +42,12 @@ public class UserServicesImpl implements UserServices{
 	public UserAccount validateUser(UserLogin login) {
 	    return userDao.findById(login.getEmailId()).get();
 	  }
+
+	@Override
+	public UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException {
+
+		return userDao.findById(emailId).orElseThrow(()->new UserNotFoundException("user not found"));
+	}
+	
+	
 }

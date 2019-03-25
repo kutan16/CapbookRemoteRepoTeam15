@@ -45,8 +45,10 @@ h1.h{
 				<tr>
 					<td><input type="submit" value="Login" /></td>
 				</tr>
+				
 			</form:form>
 		</table>
+		<a href="forgetPassword">Forget</a>
 	</div>
 </body>
 </html>
