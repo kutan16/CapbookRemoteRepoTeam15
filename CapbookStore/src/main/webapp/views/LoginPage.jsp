@@ -27,19 +27,19 @@ h1.h{
 </head>
 <body>
 	<div align="center" class="bg-light text-dark">
-	<h1>WELCOME TO CAPBOOK REGISTRATION PAGE</h1>
-		<h2 class="bg-dark text-white">Enter your correct details to Register to Capbook</h2>
+	<h1>CapBook Login Page</h1>
+		<h2 class="bg-dark text-white">Enter your correct credentials to Login to Capbook</h2>
 		<table>
 			<form:form action="loginUser" method="post"
 				modelAttribute="userLogin">
 				<tr>
 					<td>User name/email Id</td>
-					<td><form:input path="emailId" size="30" /></td>
+					<td><form:input path="emailId" size="30" placeholder="Email Id"/></td>
 					<td><form:errors path="emailId" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><form:input type="password" path="password" size="30" /></td>
+					<td><form:input type="password" path="password" placeholder="passowrd" size="30" /></td>
 					<td><form:errors path="password" cssClass="error" /></td>
 				</tr>
 				<tr>

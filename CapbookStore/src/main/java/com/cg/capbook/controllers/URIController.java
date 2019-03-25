@@ -34,7 +34,7 @@ public class URIController {
 	}
 	
 	@ModelAttribute
-	public UserLogin usrLogin() {
+	public UserLogin userLogin() {
 		userLogin=new UserLogin();
 		return userLogin;
 	}

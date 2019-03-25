@@ -16,18 +16,14 @@ public class LoginController {
 	  public UserServices userServices;
 
 	  @PostMapping(value = "/loginUser")
-	  public String login(@ModelAttribute("login") UserLogin userLogin, BindingResult bindingResult, ModelMap model) {
-
+	  public String login(@ModelAttribute("login") UserLogin userLogin, BindingResult result, ModelMap model) {
 	    UserAccount userAccount = userServices.validateUser(userLogin);
-
 	    boolean isValidUser = false;
-
 	    if (null != userAccount && userAccount.getEmailId().equals(userLogin.getEmailId())
 	        && userAccount.getPassword().equals(userLogin.getPassword())) {
 	      isValidUser = true;
 	      model.addAttribute("emailId", userAccount.getEmailId());
 	    }
-
 	    return isValidUser ? "userProfilePage" : "loginPage";
 	  }
 }

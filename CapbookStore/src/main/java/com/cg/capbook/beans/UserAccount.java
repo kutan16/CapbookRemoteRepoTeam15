@@ -30,7 +30,7 @@ public class UserAccount {
 	private String gender;
 	@NotEmpty
 	private String mobileNo;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	@NotNull
 	private Date dateOfBirth;
 	@NotEmpty

@@ -22,20 +22,17 @@ h1.h{
 	color:green;
 	text:bold;
 }
-.s{
-	color:blue;
-}
 </style>
+<title>Insert title here</title>
 </head>
 <body>
 	<div align="center"  class="bg-light text-dark">
 	<h1 class="bg-dark text-white">CAPBOOK WEB APPLICATION</h1><br>
 		<h1>Welcome to CAPBOOK</h1><br>
-		<h2 class="s">Your Registration has been Successful</h2><br>
-		<h2>You can LOGIN to CapBook using your login credentials</h2><br>
+		<h2>If you are a new user then click REGISTER NOW to register your account to CAPBOOK</h2><br>
+		<h2>Existing users can LOGIN to CapBook using their existing login credentials</h2><br>
+		<h2> Click Here to <a href="registrationPage">REGISTER</a> your account </h2>
 		<h2> Click Here to <a href="loginPage">LOGIN</a></h2>
-		<h2>Click Here to <a href="index">Return to Home Page</a></h2>\
 	</div>
 </body>
 </html>
-
