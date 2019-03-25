@@ -27,6 +27,17 @@ public class URIController {
 		return "LoginPage";
 	}
 	
+	@RequestMapping("/changePassword")
+	public String getchangePasswordPage() {
+		return "changePasswordPage";
+	}
+	
+	@RequestMapping("/forgetPassword")
+	public String getforgetPasswordPage() {
+		return "forgetPasswordPage";
+	}
+	
+	
 	@ModelAttribute
 	public UserAccount userAccount() {
 		userAccount=new UserAccount();

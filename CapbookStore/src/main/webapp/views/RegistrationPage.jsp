@@ -57,6 +57,7 @@ h1.h{
 </style>
 </head>
 <body>
+
 	<div align="center" class="bg-light text-dark">
 	<h1>WELCOME TO CAPBOOK REGISTRATION PAGE</h1>
 		<h2 class="bg-dark text-white">Enter your correct details to Register to CapBook</h2>
