@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -30,6 +31,7 @@ public class UserAccount {
 	@NotEmpty
 	private String password;
 	
+	
 //	@OneToMany(mappedBy="userAccount",cascade=CascadeType.ALL)
 //	private List<UserComment> ccomment;
 //	
@@ -43,7 +45,7 @@ public class UserAccount {
 //	private UserData data;
 	
 //	private Date creationDate;
-	
+
 	public UserAccount() {
 		super();
 	}

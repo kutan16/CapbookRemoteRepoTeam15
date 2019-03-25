@@ -33,7 +33,7 @@ h1.h{
 		<h1>Welcome to CAPBOOK</h1><br>
 		<h2 class="s">Your Registration has been Successful</h2><br>
 		<h2>You can LOGIN to CapBook using your login credentials</h2><br>
-		<h2> Click Here to <a href="LoginPage">LOGIN</a></h2>
+		<h2> Click Here to <a href="loginPage">LOGIN</a></h2>
 	</div>
 </body>
 </html>

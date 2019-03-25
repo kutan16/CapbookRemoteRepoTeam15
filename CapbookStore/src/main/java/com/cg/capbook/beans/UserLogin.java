@@ -2,6 +2,7 @@ package com.cg.capbook.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class UserLogin {
@@ -9,7 +10,7 @@ public class UserLogin {
 	@Id	
 	private String emailId;
 	private String password;
-
+	
 	public UserLogin(){
 
 	}

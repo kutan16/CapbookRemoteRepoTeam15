@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-your login was successful
-<h1>This is the profile of ${userAccount.firstName}</h1>
+Your login was successful
+<h1>Welcome ${emailId}</h1>
 </body>
 </html>
