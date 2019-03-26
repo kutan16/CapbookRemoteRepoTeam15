@@ -249,7 +249,7 @@ height:750px;
 				<div id="info4">
 					By clicking Join Now, you will be a member of Capgemini's web application ' CapBook '.
 				</div>
-				<br> <input class="button2" type="submit" value="Join Now" />
+				<br> <input class="button2" type="submit" name="submit" value="Join Now" />
 			</div>
 		
 

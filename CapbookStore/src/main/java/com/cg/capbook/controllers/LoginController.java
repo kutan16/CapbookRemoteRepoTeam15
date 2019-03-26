@@ -1,12 +1,17 @@
 package com.cg.capbook.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import com.cg.capbook.beans.UserAccount;
 import com.cg.capbook.beans.UserLogin;
 import com.cg.capbook.services.UserServices;
@@ -26,5 +31,6 @@ public class LoginController {
 	    }
 	    return isValidUser ? "userProfilePage" : "loginPage";
 	  }
+
 }
 

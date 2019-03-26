@@ -43,8 +43,4 @@ public class UserServicesImpl implements UserServices{
 	public UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException {
 		return userDao.findById(emailId).orElseThrow(()->new UserNotFoundException("user not found"));
 	}
-	@Override
-	public String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
 }
