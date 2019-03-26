@@ -242,16 +242,14 @@ height:750px;
 				<br>
 				<form:errors path="securityQuestion" cssClass="error" />
 				<div id="info3">Gender</div>
-				<form:radiobutton path="gender" value="Male" style="width:50px; height:30px;" />MALE
-				<form:radiobutton path="gender" value="Female" style="width:50px; height:30px;" />FEMALE
-				<form:radiobutton path="gender" value="Other" style="width:50px; height:30px;" />OTHER
+				<form:radiobutton path="gender" value="Male" style="width:20px; height:15px;" /><a style="color:black">Male</a>
+				<form:radiobutton path="gender" value="Female" style="width:20px; height:15px;" /><a style="color:black">Female</a>
+				<form:radiobutton path="gender" value="Other" style="width:20px; height:15px;" /><a style="color:black">Others</a>
 				<form:errors path="gender" cssClass="error" />
 				<div id="info4">
-					By clicking Join now, you agree to CapBook's User <b
-						style="color: black;">Agreement</b>, <b style="color: black">Privacy
-						Policy</b>, and <b style="color: black">Cookie Policy</b>.
+					By clicking Join Now, you will be a member of Capgemini's web application ' CapBook '.
 				</div>
-				<br> <input class="button2" type="submit" value="Create account" />
+				<br> <input class="button2" type="submit" value="Join Now" />
 			</div>
 		
 
