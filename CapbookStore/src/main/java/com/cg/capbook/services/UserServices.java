@@ -12,4 +12,5 @@ public interface UserServices {
 	boolean CheckUserDetails(String emailId) throws EmailAlreadyExistException;
 	UserAccount validateUser(UserLogin login);
 	UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException;
+	UserLogin userLogout(UserLogin login);
 }

@@ -3,7 +3,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
-<title>W3.CSS Template</title>
+<title>CAPBOOK</title>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,11 +33,11 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
     </div>
   </div>
-  <a href="logout" class="w3-button w3-padding-large lout"><i class="fa">Logout</i>
-	</a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
-    <img src="/w3images/avatar2.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
-  </a>
+  <form:form action="logoutUser" method="post" modelAttribute="userLogin">
+  <!-- <a href="logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white lout"><i class="fa">Logout</i></a> -->
+  <input type="submit" value="Logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white lout">
+ 	</form:form>
+  <a href="userSettings" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">My Account</a>
  </div>
 </div>
 

@@ -43,4 +43,10 @@ public class UserServicesImpl implements UserServices{
 	public UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException {
 		return userDao.findById(emailId).orElseThrow(()->new UserNotFoundException("user not found"));
 	}
+
+	@Override
+	public UserLogin userLogout(UserLogin login) {
+		login.setEmailId(null);
+		return null;
+	}
 }

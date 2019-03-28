@@ -37,6 +37,10 @@ public class URIController {
 		return "forgetPasswordPage";
 	}
 	
+	@RequestMapping("/logout")
+	public String getLogout() {
+		return "userProfilePage";
+	}
 	
 	@ModelAttribute
 	public UserAccount userAccount() {
