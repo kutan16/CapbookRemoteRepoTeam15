@@ -23,7 +23,7 @@ h1.h{
 	text:bold;
 }
 .s{
-	color:blue;
+	color:green;
 }
 </style>
 </head>

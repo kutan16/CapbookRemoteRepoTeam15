@@ -6,8 +6,8 @@
 <head>
 <style>
 body{ 
-background:linear-gradient(to bottom right, white, #bcbdc4);
-height:750px;
+background:linear-gradient(to top, rgba(185, 182, 218, 0), rgb(11, 113, 174));
+height:930px;
 }
 .headerx{
 	position:absolute;
@@ -24,7 +24,7 @@ height:750px;
     position:absolute;
 	width:100%;
 	height:70px;
-	background:#4e4848;
+	background:rgba(208, 208, 208, 0.25);
 	top:0px;
 	left:0px;
 	color:white;
@@ -37,20 +37,27 @@ height:750px;
 	left:22%;
 	top:20px;	
 }
+.logox{
+position:absolute;
+	left: 20%;
+    top: -13%;
+    color: #fcfeff;
+}
 #img-l{
-	position:absolute;
-	left: 15%;
-    top: -60%;
+	position: absolute;
+    left: 14%;
+    height: -webkit-fill-available;
+    width: auto;
 }
 #form1{
-	left:43%;
-	top:10px;
+	left:66%;
+	top:13px;
 	height:25px;
-	width:220px;	
+	width:200px;	
 }
 #form2{
-	left:60%;
-	top:10px;
+	left:80%;
+	top:13px;
 	height:25px;
 	width:200px;
 }
@@ -59,7 +66,7 @@ height:750px;
 	font-size:12px;
 	margin-top:5px;
 }
-#submit1{ left:76%; top:12px; background:#c2c3d0;
+#submit1{ left:94%; top:12px; background:#c2c3d0;
  color:black;  z-index:20; 
  height:23px; width:60px; cursor:pointer; 
  }
@@ -78,9 +85,9 @@ height:750px;
  }
  .box{
 	 margin-top:20px;	 
-	 height:590px;
+	 height:650px;
 	 width:350px;
-	 background:#f3eee1;
+	 background:#cae0ef;
 	 padding-top:15px;
 	 padding-left:28px;
 	 padding-right:28px;
@@ -147,8 +154,8 @@ height:750px;
 	position:absolute;
 	width:100%;
 	height:80px;
-	background:#4e4848;
-    top:750px;
+	background:rgba(208, 208, 208, 0.25);
+    top:800px;
 	left:0px;
 	color:white;
 	z-index:20;
@@ -175,7 +182,8 @@ height:750px;
 	<div class="headerx"></div>
 	<form:form action="loginUser" method="post" modelAttribute="userLogin">
 		<div class="header">
-			<img id="img-l" src="https://www.sas.com/en_id/partners/find-a-partner/alliance-partners/capgemini/_jcr_content/par/styledcontainer_d4b4/par/styledcontainer_dd96/par/image_14e4.img.png/1541437810290.png" />
+			<img id="img-l" src="https://www.capgemini.com/us-en/wp-content/themes/capgemini-komposite/assets/images/favicon.ico" alt="logo"/>
+			<h1 class="logox">CAPBOOK</h1>
 			
 			<div id="form1" class="header">
 				<form:input path="emailId" type="email"
