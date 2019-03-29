@@ -24,7 +24,7 @@ public class UserServicesImpl implements UserServices{
 	@Override
 	public UserAccount acceptUserDetails(UserAccount user) {
 		user =  userDao.save(user);
-		user.setPassword(encryptPassword(user.getPassword()));
+//		user.setPassword(encryptPassword(user.getPassword()));
 		return userDao.save(user);
 	}
 
