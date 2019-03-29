@@ -24,7 +24,7 @@ public class UserServicesImpl implements UserServices{
 	@Override
 	public UserAccount acceptUserDetails(UserAccount user) {
 		user =  userDao.save(user);
-//		user.setPassword(encryptPassword(user.getPassword()));
+		user.setPassword(encryptPassword(user.getPassword()));
 		return userDao.save(user);
 	}
 
@@ -55,10 +55,7 @@ public class UserServicesImpl implements UserServices{
 		userAccount.setEmailId(null);
 		return null;
 	}
-	@Override
-	public UserAccount validateUser(UserAccount account) {
-	    return userDao.findById(account.getEmailId()).get();
-	  }
+	
 	@Override
 	public UserAccount addPhoto(String emailId, MultipartFile file) throws UserNotFoundException {
 		UserAccount userAccount = findAccountByEmailId(emailId);
@@ -118,5 +115,14 @@ public class UserServicesImpl implements UserServices{
        }  
        userAccount.setPassword(result);
        return result; 
+	}
+
+	@Override
+	public boolean validateUser(UserAccount account) {
+		account.setPassword(decryptPassword(account.getPassword()));
+		if(account!=null && account.getEmailId().equalsIgnoreCase(userAccount.getEmailId()) &&
+				account.getPassword().equalsIgnoreCase(userAccount.getPassword()))
+			account.setPassword(encryptPassword(account.getPassword()));
+		return true;
 	}
 }

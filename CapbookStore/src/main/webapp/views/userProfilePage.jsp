@@ -95,7 +95,11 @@ element.style {
          <h4 class="w3-center">My Profile</h4>
          <p class="w3-center"><!-- <img class="w3-circle" style="height:106px;width:106px" alt="Avatar"> --></p>
          <hr>
-         <form action="/action_page.php" method="post">
+         
+<!--IMAGE UPLOAD-->
+
+         <form action="saveImage" method="post" enctype="multipart/form-data">
+         <!-- <input type="text">Email iD -->
          <input type="file" name="profilePictureFile" accept="image/*">
   			<input type="submit" value="Upload">
   			</form>

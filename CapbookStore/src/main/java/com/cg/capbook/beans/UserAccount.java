@@ -201,4 +201,8 @@ public class UserAccount {
 		this.securityQuestion = securityQuestion;
 	}
 
+	public String getProfilePictureFile() {
+		return profilePictureFile;
+	}
+
 }

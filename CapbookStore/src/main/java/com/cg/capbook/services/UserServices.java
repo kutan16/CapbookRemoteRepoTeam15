@@ -14,9 +14,8 @@ public interface UserServices {
 //	UserAccount validateUser(UserLogin login);
 	UserAccount findAccountByEmailId(String emailId) throws UserNotFoundException;
 	UserAccount userLogout();
-	UserAccount validateUser(UserAccount account);
+	boolean validateUser(UserAccount account);
 	String encryptPassword(String password);
 	String decryptPassword(String password);
 	UserAccount addPhoto(String emailId, MultipartFile file) throws UserNotFoundException;
-	
 }
