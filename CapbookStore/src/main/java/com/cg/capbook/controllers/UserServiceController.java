@@ -1,22 +1,23 @@
 
 package com.cg.capbook.controllers;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cg.capbook.beans.UserAccount;
-import com.cg.capbook.beans.UserLogin;
 import com.cg.capbook.exceptions.EmailAlreadyExistException;
+import com.cg.capbook.exceptions.UserNotFoundException;
 import com.cg.capbook.services.UserServices;
 
 @Controller
@@ -25,18 +26,28 @@ public class UserServiceController {
 	@Autowired
 	private UserServices userServices;
 	
-	
-	
 	@RequestMapping("/registerUser")
 	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount,String password,BindingResult result) throws EmailAlreadyExistException {
 		if(result.hasErrors())
 			return new ModelAndView("RegistrationPage");
-		String encryptPassword = "abc" + password + "def";
-		userAccount.setPassword(encryptPassword);
+//		String encryptPassword = "abc" + password + "def";
+//		userAccount.setPassword(encryptPassword);
 		userAccount=userServices.acceptUserDetails(userAccount);
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	} 
 
+	@PostMapping(value = "/loginUser")
+	  public String login(@ModelAttribute("login") UserAccount userAccount, BindingResult result, ModelMap model) {
+	    UserAccount userAccount1 = userServices.validateUser(userAccount);
+	    boolean isValidUser = false;
+	    if (null != userAccount1 && userAccount1.getEmailId().equals(userAccount.getEmailId())
+	        && userAccount1.getPassword().equals(userAccount.getPassword())) {
+	      isValidUser = true;
+	      model.addAttribute("emailId", userAccount.getEmailId());
+	    }
+	    return isValidUser ? "userProfilePage" : "loginPage";
+	  }
+	
 	@RequestMapping("/forgotPasswordService")
 	public ModelAndView forgotPassword(@RequestParam String emailId, @RequestParam String question,
 			@RequestParam String password) throws Exception {
@@ -67,4 +78,17 @@ public class UserServiceController {
 
 	}
 
+	@RequestMapping("/logoutUser")
+	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount, BindingResult result, ModelMap model) throws EmailAlreadyExistException {
+		if(result.hasErrors())
+			return new ModelAndView("userProfilePage");
+		userServices.userLogout();
+		return new ModelAndView("LogoutSuccessPage","userAccount",null);
+	}
+	
+	@RequestMapping("/saveImage")
+	public ModelAndView editPic(@RequestParam MultipartFile file, HttpSession session) throws UserNotFoundException {
+		return new ModelAndView("ImageUploadPage", "userAccount", userServices.addPhoto((String) session.getAttribute("emailId"), file));
+				
+	}
 }

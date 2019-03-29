@@ -40,30 +40,14 @@ public class UserAccount {
 	
 	private LocalDate currentDate;
 	
-	File profilePictureFile;
+	private String profilePictureFile;
 	
 	@Embedded
 	private UserData data;
 	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserPhoto> userPhotos;
-	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserStatus> userStatus;
-	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserFriend> userFriend;
-	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserFriendRequest> friendRequest;
-	
-	public UserAccount() {
-		super();
-	}
-
 	public UserAccount(@NotEmpty String emailId, @NotEmpty String firstName, @NotEmpty String lastName,
 			@NotEmpty String gender, @NotEmpty String mobileNo, @NotNull Date dateOfBirth, @NotEmpty String password,
-			@NotEmpty String securityQuestion, LocalDate currentDate, File profilePictureFile, UserData data,
+			String securityQuestion, LocalDate currentDate, String profilePictureFile, UserData data,
 			List<UserPhoto> userPhotos, List<UserStatus> userStatus, List<UserFriend> userFriend,
 			List<UserFriendRequest> friendRequest) {
 		super();
@@ -84,6 +68,26 @@ public class UserAccount {
 		this.friendRequest = friendRequest;
 	}
 
+	public void setProfilePictureFile(String profilePictureFile) {
+		this.profilePictureFile = profilePictureFile;
+	}
+
+	@OneToMany(mappedBy="userAccount")
+	private List<UserPhoto> userPhotos;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserStatus> userStatus;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserFriend> userFriend;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserFriendRequest> friendRequest;
+	
+	public UserAccount() {
+		super();
+	}
+	
 	public String getEmailId() {
 		return emailId;
 	}
@@ -103,6 +107,7 @@ public class UserAccount {
 	public String getLastName() {
 		return lastName;
 	}
+
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -146,14 +151,6 @@ public class UserAccount {
 
 	public void setCurrentDate(LocalDate currentDate) {
 		this.currentDate = currentDate;
-	}
-
-	public File getProfilePictureFile() {
-		return profilePictureFile;
-	}
-
-	public void setProfilePictureFile(File profilePictureFile) {
-		this.profilePictureFile = profilePictureFile;
 	}
 
 	public UserData getData() {

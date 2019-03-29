@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cg.capbook.beans.UserAccount;
-import com.cg.capbook.beans.UserLogin;
 
 @Controller
 public class URIController {
 	private UserAccount userAccount;
-	private UserLogin userLogin;
 	
 	@RequestMapping(value= {"/","index"})
 	public String getIndexPage() {
@@ -48,9 +46,4 @@ public class URIController {
 		return userAccount;
 	}
 	
-	@ModelAttribute
-	public UserLogin userLogin() {
-		userLogin=new UserLogin();
-		return userLogin;
-	}
 }
