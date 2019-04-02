@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cg.capbook.beans.UserAccount;
 import com.cg.capbook.exceptions.EmailAlreadyExistException;
+import com.cg.capbook.exceptions.InvalidPasswordException;
 import com.cg.capbook.exceptions.UserNotFoundException;
 import com.cg.capbook.services.UserServices;
 
@@ -35,13 +36,21 @@ public class UserServiceController {
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	} 
 
-	@PostMapping(value = "/loginUser")
-	  public String login(@ModelAttribute("login") UserAccount userAccount, BindingResult result, ModelMap model) {
-		userServices.validateUser(userAccount);
-		userServices.decryptPassword(userAccount.getPassword());
-	    return "userProfilePage";
-	  }
+//	@PostMapping(value = "/loginUser")
+//	  public String login(@ModelAttribute("login") UserAccount userAccount, BindingResult result, ModelMap model) throws InvalidPasswordException {
+//		userServices.validateUser(userAccount);
+//		userServices.decryptPassword(userAccount.getPassword());
+//	    return
+//	  }
 	
+	@RequestMapping("/loginUser")
+	public ModelAndView logInForUser(@RequestParam String emailId, String password, HttpSession session) throws InvalidPasswordException,UserNotFoundException {
+		if(userServices.loginService(emailId, password)!=null) {
+			session.setAttribute("emailId", emailId);
+		}
+		else throw new UserNotFoundException();
+		return new ModelAndView("userProfilePage", "userAccount", userServices.loginService(emailId, password));
+	}
 	@RequestMapping("/forgotPasswordService")
 	public ModelAndView forgotPassword(@RequestParam String emailId, @RequestParam String question,
 			@RequestParam String password) throws Exception {
@@ -79,8 +88,8 @@ public class UserServiceController {
 	}
 	
 	@RequestMapping("/saveImage")
-	public ModelAndView editPic(@RequestParam MultipartFile file, HttpSession session) throws UserNotFoundException {
-		return new ModelAndView("ImageUploadPage", "userAccount", userServices.addPhoto((String) session.getAttribute("emailId"), file));
+	public ModelAndView profilePic(@RequestParam MultipartFile profilePictureFile, HttpSession session) throws UserNotFoundException {
+		return new ModelAndView("userProfilePage", "userAccount", userServices.addPhoto((String) session.getAttribute("emailId"), profilePictureFile));
 				
 	}
 }

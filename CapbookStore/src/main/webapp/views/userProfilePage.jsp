@@ -93,7 +93,7 @@ element.style {
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><!-- <img class="w3-circle" style="height:106px;width:106px" alt="Avatar"> --></p>
+         <p class="w3-center"><img class="w3-circle" src="${UserAccount.profilePictureFile}"style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          
 <!--IMAGE UPLOAD-->

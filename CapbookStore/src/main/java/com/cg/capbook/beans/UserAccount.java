@@ -20,20 +20,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class UserAccount {
 
 	@Id
-	@NotEmpty
 	private String emailId;
-	@NotEmpty
+	
 	private String firstName;
-	@NotEmpty
+	
 	private String lastName;
-	@NotEmpty
+	
 	private String gender;
-	@NotEmpty
+	
 	private String mobileNo;
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
-	@NotNull
 	private Date dateOfBirth;
-	@NotEmpty
+	
 	private String password;
 	
 	private String securityQuestion;
