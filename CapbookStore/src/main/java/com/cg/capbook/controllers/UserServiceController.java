@@ -33,12 +33,14 @@ public class UserServiceController {
 //		String encryptPassword = "abc" + password + "def";
 //		userAccount.setPassword(encryptPassword);
 		userAccount=userServices.acceptUserDetails(userAccount);
+		userAccount.setPassword(userServices.encryptPassword(password));
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	} 
 
 	@PostMapping(value = "/loginUser")
 	  public String login(@ModelAttribute("login") UserAccount userAccount, BindingResult result, ModelMap model) {
 		userServices.validateUser(userAccount);
+		userServices.decryptPassword(userAccount.getPassword());
 //	    UserAccount userAccount1 = userServices.validateUser(userAccount);
 //	    boolean isValidUser = false;
 //	    if (null != userAccount1 && userAccount1.getEmailId().equals(userAccount.getEmailId())
