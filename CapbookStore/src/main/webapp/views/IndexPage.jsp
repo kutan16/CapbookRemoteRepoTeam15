@@ -2,7 +2,34 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
-<title>CapBook Store</title>
+<title>CapBook Store</title> 
+
+<script language="javascript">
+
+function chkEmpty(){
+var mob = /^[7-9]{1}[0-9]{9}$/;
+var email=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+
+if (document.frmReg.firstName.value == "") {alert("Please fill the First Name");}
+else if (document.frmReg.lastName.value == "") {alert("Please fill the Last Name");}
+else if (document.frmReg.emailId.value == ""){alert("Please fill the Email");}
+else if (email.test(document.frmReg.emailId.value) == false) { alert("Please enter valid Email Id.");}
+else if (document.frmReg.dateOfBirth.value == ""){alert("Please Enter Date of Birth");}
+else if (document.frmReg.mobileNo.value == "") {alert("Please fill the Contact No.");}
+else if (mob.test(document.frmReg.mobileNo.value) == false) { alert("Please enter valid Contact no.");}
+/* else if (document.frmReg.securityQuestion.value=="Security Question"){alert("Please select a security question")}
+ */
+
+else if (document.frmReg.gender[0].checked==false&&document.frmReg.gender[1].checked==false &&document.frmReg.gender[2].checked==false){alert("Please Select Gender");}
+else {
+	alert("Registeration Successful! :)");
+	window.location = 'RegisterationSuccessPage.jsp';
+	}
+}
+
+
+</script>
+
 <head>
 <style>
 body{ 
@@ -108,7 +135,7 @@ position:absolute;
  }
   #info3{
 	 text-align:left;	 
-	 color:#888889;	 
+	 color:#000000;	 
 	 font-family:arial;
 	 font-size:12px;
  }
@@ -204,8 +231,8 @@ position:absolute;
 			</div>
 		</div>
 	</form:form>
-	<form:form action="registerUser" method="post"
-			modelAttribute="userAccount">
+	<form:form action="registerUser" onsubmit="return chkEmpty();" method="post"
+			modelAttribute="userAccount" name="frmReg">
 	<div class="main" align="center">
 		
 			<div class="box">
@@ -229,7 +256,7 @@ position:absolute;
 				<br>
 				<form:errors path="emailId" cssClass="error" />
 				<div id="info3">Password (6 or more characters)</div>
-				<form:input class="password" path="password"
+				<form:input class="password" type ="password" path="password"
 					style="width:350px; height:30px;" />
 				<br>
 				<br>
@@ -244,11 +271,22 @@ position:absolute;
 				<br>
 				<br>
 				<form:errors path="mobileNo" cssClass="error" />
-				<div id="info3">What was the name of your first pet?</div>
-				<form:input path="securityQuestion" style="width:350px; height:30px;" />
-				<br>
-				<br>
-				<form:errors path="securityQuestion" cssClass="error" />
+				<div id="info3">
+								<select name="securityQuestion"
+									id="securityQuestion" >
+									<option value="" selected disabled hidden>Security Question</option>
+									<option value="What's your nick name?" >What's your nick name?</option>
+									<option value="What's your favourite game?" >What's your favourite game?</option>
+									<option value="What's your pet name?" >What's your pet name?</option>
+									<option value="What's your favourite car?" >What's your favourite car?</option>
+									<option value="What's your favourite book?" >What's your favourite book?</option>
+									<option value="What's your birthplace?" >What's your Birth Place?</option>
+								</select>
+							</div>
+							<div>
+								<form:input path="securityQuestion" style="width:350px; height:30px;"
+									id="securityAnswer" placeholder="Security Answer" />
+							</div>
 				<div id="info3">Gender</div>
 				<form:radiobutton path="gender" value="Male" style="width:20px; height:15px;" /><a style="color:black">Male</a>
 				<form:radiobutton path="gender" value="Female" style="width:20px; height:15px;" /><a style="color:black">Female</a>
@@ -257,7 +295,7 @@ position:absolute;
 				<div id="info4">
 					By clicking Join Now, you will be a member of Capgemini's web application ' CapBook '.
 				</div>
-				<br> <input class="button2" type="submit" name="submit" value="Join Now" />
+				<br> <input class="button2" type="submit" name="submit"  value="Join Now" />
 			</div>
 		
 
