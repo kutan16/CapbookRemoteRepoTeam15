@@ -30,8 +30,6 @@ public class UserServiceController {
 	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount,String password,BindingResult result) throws EmailAlreadyExistException {
 		if(result.hasErrors())
 			return new ModelAndView("RegistrationPage");
-//		String encryptPassword = "abc" + password + "def";
-//		userAccount.setPassword(encryptPassword);
 		userAccount=userServices.acceptUserDetails(userAccount);
 		userAccount.setPassword(userServices.encryptPassword(password));
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
@@ -41,13 +39,6 @@ public class UserServiceController {
 	  public String login(@ModelAttribute("login") UserAccount userAccount, BindingResult result, ModelMap model) {
 		userServices.validateUser(userAccount);
 		userServices.decryptPassword(userAccount.getPassword());
-//	    UserAccount userAccount1 = userServices.validateUser(userAccount);
-//	    boolean isValidUser = false;
-//	    if (null != userAccount1 && userAccount1.getEmailId().equals(userAccount.getEmailId())
-//	        && userAccount1.getPassword().equals("abc"+userAccount.getPassword()+"def")) {
-//	      isValidUser = true;
-//	      model.addAttribute("emailId", userAccount.getEmailId());
-//	    }
 	    return "userProfilePage";
 	  }
 	
@@ -56,11 +47,9 @@ public class UserServiceController {
 			@RequestParam String password) throws Exception {
 		UserAccount userAccount = userServices.findAccountByEmailId(emailId);
 		if (userAccount.getSecurityQuestion().equalsIgnoreCase(question)) {
-			String encryptPassword = "abc" + password + "def";
-			userAccount.setPassword(encryptPassword);
 			userAccount = userServices.acceptUserDetails(userAccount);
-			return new ModelAndView("forgetPasswordSuccessPage", "UserAccount", userAccount);
-
+			userAccount.setPassword(userServices.encryptPassword(password));
+			return new ModelAndView("forgetPasswordSuccessPage", "userAccount", userAccount);
 		} else
 			return new ModelAndView("errorPage", "error", userAccount);
 
