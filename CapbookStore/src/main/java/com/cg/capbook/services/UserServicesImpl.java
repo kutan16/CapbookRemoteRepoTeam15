@@ -66,7 +66,7 @@ public class UserServicesImpl implements UserServices{
 			Path path = Paths.get(imageLocation + file.getOriginalFilename());
 			file.transferTo(path);
 			userAccount.setProfilePictureFile("/images/" + file.getOriginalFilename());
-
+			System.out.println(userAccount.getProfilePictureFile());
 		}
 		catch (IOException e) {
 			e.printStackTrace();

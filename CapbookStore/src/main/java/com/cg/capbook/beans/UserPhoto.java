@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class UserPhoto {
 	@Id
+	private int id;
 	private String emailId;
 	private String imageURL;
 	private File photoFile;
