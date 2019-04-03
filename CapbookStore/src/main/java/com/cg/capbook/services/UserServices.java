@@ -3,7 +3,9 @@ package com.cg.capbook.services;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cg.capbook.beans.UserAccount;
+import com.cg.capbook.beans.UserStatus;
 import com.cg.capbook.exceptions.EmailAlreadyExistException;
+import com.cg.capbook.exceptions.EmptyStatusException;
 import com.cg.capbook.exceptions.InvalidPasswordException;
 import com.cg.capbook.exceptions.UserNotFoundException;
 
@@ -19,4 +21,9 @@ public interface UserServices {
 	String encryptPassword(String password);
 //	String decryptPassword(String password);
 	UserAccount addPhoto(String emailId, MultipartFile file) throws UserNotFoundException;
+	//UserStatus postStatus(String emailId, String status)throws UserNotFoundException,EmptyStatusException;
+	boolean saveStatus(String emailId,UserStatus status)throws UserNotFoundException,EmptyStatusException;;
+	UserAccount updateUserDetails(UserAccount user, String emailId) throws UserNotFoundException;
+	boolean changePassword(String emailId, String oldPassword, String newPassword) throws UserNotFoundException,InvalidPasswordException;
+
 }

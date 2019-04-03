@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cg.capbook.beans.UserAccount;
+import com.cg.capbook.beans.UserData;
 import com.cg.capbook.exceptions.EmailAlreadyExistException;
 import com.cg.capbook.exceptions.InvalidPasswordException;
 import com.cg.capbook.exceptions.UserNotFoundException;
@@ -36,13 +37,6 @@ public class UserServiceController {
 		return new ModelAndView("RegistrationSuccessPage","userAccount",userAccount);
 	} 
 
-//	@PostMapping(value = "/loginUser")
-//	  public String login(@ModelAttribute("login") UserAccount userAccount, BindingResult result, ModelMap model) throws InvalidPasswordException {
-//		userServices.validateUser(userAccount);
-//		userServices.decryptPassword(userAccount.getPassword());
-//	    return
-//	  }
-	
 	@RequestMapping("/loginUser")
 	public ModelAndView logInForUser(@RequestParam String emailId, String password, HttpSession session) throws InvalidPasswordException,UserNotFoundException {
 		if(userServices.loginService(emailId, password)!=null) {
@@ -65,20 +59,22 @@ public class UserServiceController {
 	}
 
 	@RequestMapping("/changePasswordService")
-	public ModelAndView changePassword(@RequestParam String emailId, @RequestParam String cpassword,
-			@RequestParam String password) throws Exception {
-		UserAccount UserAccount = userServices.findAccountByEmailId(emailId);
-		if (password.equalsIgnoreCase(cpassword)) {
-			String encryptPassword = "abc" + password + "def";
-			UserAccount.setPassword(encryptPassword);
-			UserAccount = userServices.acceptUserDetails(UserAccount);
-			return new ModelAndView("forgotPasswordSuccessPage", "UserAccount", UserAccount);
+	public ModelAndView changePassword(@RequestParam String emailId,
+			@RequestParam String oldPassword, @RequestParam String newPassword) throws InvalidPasswordException,UserNotFoundException {
+		userServices.changePassword(emailId,oldPassword, newPassword);
+			return new ModelAndView("changePasswordSuccessPage", "UserAccount", "password Changed Successfully");
 
-		} else
-			return new ModelAndView("errorPage", "error", UserAccount);
-
+		} 
+	
+	@RequestMapping("/updateUser")
+	public ModelAndView updateUser(@Valid @ModelAttribute UserAccount userAccount,String emailId,BindingResult result) throws EmailAlreadyExistException, UserNotFoundException {
+		if(result.hasErrors())
+			return new ModelAndView("AccountSettingsPage");
+		userAccount=userServices.updateUserDetails(userAccount,emailId);
+		return new ModelAndView("AccountSettingsPageSuccess","userAccount",userAccount);
 	}
 
+	
 	@RequestMapping("/logoutUser")
 	public ModelAndView registerUser(@Valid @ModelAttribute UserAccount userAccount, BindingResult result, ModelMap model) throws EmailAlreadyExistException {
 		if(result.hasErrors())
@@ -89,7 +85,7 @@ public class UserServiceController {
 	
 	@RequestMapping("/saveImage")
 	public ModelAndView profilePic(@RequestParam MultipartFile profilePictureFile, HttpSession session) throws UserNotFoundException {
-		return new ModelAndView("userProfilePage", "userAccount", userServices.addPhoto((String) session.getAttribute("emailId"), profilePictureFile));
-				
+		
+		return new ModelAndView("userProfilePage", "userAccount", userServices.addPhoto((String) session.getAttribute("emailId"), profilePictureFile));		
 	}
 }

@@ -100,7 +100,7 @@ width:350px; height:35px;
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><img class="w3-circle" src="${UserAccount.profilePictureFile}"style="height:106px;width:106px" alt="Avatar"></p>
+         <p class="w3-center"><img  src="${userAccount.profilePictureFile}" style="height:206px;width:206px" alt="Avatar"></p>
          <hr>
          
 <!--IMAGE UPLOAD-->
@@ -186,11 +186,13 @@ width:350px; height:35px;
         <h4>UPDATE USER SETTINGS</h4><br>
         <hr class="w3-clear">
     <form:form action="updateUser"  method="post" modelAttribute="userAccount">
-	Email for Verification <form:input path="emailId" style="width:350px; height:30px;" /><br>		
-	State		<form:input path="state" style="width:350px; height:30px;" /><br>
-	City		<form:input path="city" style="width:350px; height:30px;" /><br>
-	House No		<form:input path="houseNumber" style="width:350px; height:30px;" /><br>
-	Country		<form:input path="country" style="width:350px; height:30px;" /><br>
+	Email &nbsp;&nbsp;<form:input path="emailId" style="width:350px; height:30px;" /><br>	
+	Education &nbsp;&nbsp;<form:input path="education" style="width:350px; height:30px;" /><br>	
+	State &nbsp;&nbsp;<form:input path="state" style="width:350px; height:30px;" /><br>
+	City &nbsp;&nbsp;<form:input path="city" style="width:350px; height:30px;" /><br>
+	Address &nbsp;&nbsp;<form:input path="address" style="width:350px; height:30px;" /><br>
+	Hobbies &nbsp;&nbsp;<form:input path="hobbies" style="width:350px; height:30px;" /><br>
+	
 	<%-- Education		<form:input path="data.education" style="width:350px; height:30px;" /><br><br> --%>
 			<br> <input class="button2" type="submit" name="submit"  value="Update" />
 	</form:form>
@@ -209,24 +211,28 @@ width:350px; height:35px;
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <!-- <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px"> -->
         <span class="w3-right w3-opacity">16 min</span>
-        <h4>Jane Doe</h4><br>
+        <h4>Change Password</h4><br>
         <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+<form:form action="changePasswordService"  method="post" modelAttribute="userAccount">
+        <p>Email &nbsp;&nbsp;<form:input path="emailId" style="width:350px; height:30px;" /><br></p>
+        <p>Existing Password &nbsp;&nbsp;<form:input type="password" path="password" style="width:350px; height:30px;" /><br></p>
+        <p>New Password &nbsp;&nbsp;<form:input type="password" path="password" style="width:350px; height:30px;" /><br></p>
+        <br> <input class="button2" type="submit" name="submit"  value="Update" />
+</form:form>
+        
       </div>  
 
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-       <!--  <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px"> -->
+      <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">32 min</span>
         <h4>Angie Jane</h4><br>
         <hr class="w3-clear">
         <p>Have you seen this?</p>
-        <!-- <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom"> -->
+        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
         <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div> 
+      </div>  -->
       
     <!-- End Middle Column -->
     </div>

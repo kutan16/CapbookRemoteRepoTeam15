@@ -5,46 +5,54 @@ import javax.persistence.Embedded;
 import javax.persistence.Id;
 @Embeddable
 public class UserData {
-	@Id
-	private String emailId;
-	@Embedded
-	private UserAddress address;
 	private String education;
-	private String relationshipStatus;
+	private String city;
+	private String state;
+	private String address;
+	private String hobbies;
 	public UserData() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserData(String emailId, UserAddress address, String education, String relationshipStatus) {
+	public UserData( String education, String city, String state, String address, String hobbies) {
 		super();
-		this.emailId = emailId;
-		this.address = address;
+		
 		this.education = education;
-		this.relationshipStatus = relationshipStatus;
-	}
-	public String getEmailId() {
-		return emailId;
-	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-	public UserAddress getAddress() {
-		return address;
-	}
-	public void setAddress(UserAddress address) {
+		this.city = city;
+		this.state = state;
 		this.address = address;
+		this.hobbies = hobbies;
 	}
+
 	public String getEducation() {
 		return education;
 	}
 	public void setEducation(String education) {
 		this.education = education;
 	}
-	public String getRelationshipStatus() {
-		return relationshipStatus;
+	public String getCity() {
+		return city;
 	}
-	public void setRelationshipStatus(String relationshipStatus) {
-		this.relationshipStatus = relationshipStatus;
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getHobbies() {
+		return hobbies;
+	}
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
 	}
 	
 }

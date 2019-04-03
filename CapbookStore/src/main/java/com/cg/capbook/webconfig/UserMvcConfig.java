@@ -33,9 +33,9 @@ public class UserMvcConfig implements WebMvcConfigurer{
 		System.out.println(messageSource.getBasenameSet());
 		return messageSource;
 	}
-	
 	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/static/");
-	}
+    public void addResourceHandlers(ResourceHandlerRegistry registry){ 
+            registry.addResourceHandler("/**")
+                 .addResourceLocations("classpath:/static/");
+    }
 }

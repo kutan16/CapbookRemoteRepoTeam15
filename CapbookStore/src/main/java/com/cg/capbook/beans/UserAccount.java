@@ -1,6 +1,5 @@
 package com.cg.capbook.beans;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -9,8 +8,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -40,12 +37,34 @@ public class UserAccount {
 	
 	private String profilePictureFile;
 	
-	@Embedded
-	private UserData data;
+	private String education;
 	
-	public UserAccount(@NotEmpty String emailId, @NotEmpty String firstName, @NotEmpty String lastName,
-			@NotEmpty String gender, @NotEmpty String mobileNo, @NotNull Date dateOfBirth, @NotEmpty String password,
-			String securityQuestion, LocalDate currentDate, String profilePictureFile, UserData data,
+	private String city;
+	
+	private String state;
+	
+	private String address;
+	
+	private String hobbies;
+	
+//	@Embedded
+//	private UserData data;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserPhoto> userPhotos;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserStatus> userStatus;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserFriend> userFriend;
+	
+	@OneToMany(mappedBy="userAccount")
+	private List<UserFriendRequest> friendRequest;
+
+	public UserAccount(String emailId, String firstName, String lastName, String gender, String mobileNo,
+			Date dateOfBirth, String password, String securityQuestion, LocalDate currentDate,
+			String profilePictureFile, String education, String city, String state, String address, String hobbies,
 			List<UserPhoto> userPhotos, List<UserStatus> userStatus, List<UserFriend> userFriend,
 			List<UserFriendRequest> friendRequest) {
 		super();
@@ -59,33 +78,21 @@ public class UserAccount {
 		this.securityQuestion = securityQuestion;
 		this.currentDate = currentDate;
 		this.profilePictureFile = profilePictureFile;
-		this.data = data;
+		this.education = education;
+		this.city = city;
+		this.state = state;
+		this.address = address;
+		this.hobbies = hobbies;
 		this.userPhotos = userPhotos;
 		this.userStatus = userStatus;
 		this.userFriend = userFriend;
 		this.friendRequest = friendRequest;
 	}
 
-	public void setProfilePictureFile(String profilePictureFile) {
-		this.profilePictureFile = profilePictureFile;
-	}
-
-	@OneToMany(mappedBy="userAccount")
-	private List<UserPhoto> userPhotos;
-	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserStatus> userStatus;
-	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserFriend> userFriend;
-	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserFriendRequest> friendRequest;
-	
 	public UserAccount() {
 		super();
 	}
-	
+
 	public String getEmailId() {
 		return emailId;
 	}
@@ -105,7 +112,6 @@ public class UserAccount {
 	public String getLastName() {
 		return lastName;
 	}
-
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -143,6 +149,14 @@ public class UserAccount {
 		this.password = password;
 	}
 
+	public String getSecurityQuestion() {
+		return securityQuestion;
+	}
+
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+
 	public LocalDate getCurrentDate() {
 		return currentDate;
 	}
@@ -151,12 +165,52 @@ public class UserAccount {
 		this.currentDate = currentDate;
 	}
 
-	public UserData getData() {
-		return data;
+	public String getProfilePictureFile() {
+		return profilePictureFile;
 	}
 
-	public void setData(UserData data) {
-		this.data = data;
+	public void setProfilePictureFile(String profilePictureFile) {
+		this.profilePictureFile = profilePictureFile;
+	}
+
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
 	}
 
 	public List<UserPhoto> getUserPhotos() {
@@ -191,16 +245,20 @@ public class UserAccount {
 		this.friendRequest = friendRequest;
 	}
 
-	public String getSecurityQuestion() {
-		return securityQuestion;
+	public UserAccount(String education, String city, String state, String address, String hobbies) {
+		super();
+		this.education = education;
+		this.city = city;
+		this.state = state;
+		this.address = address;
+		this.hobbies = hobbies;
 	}
 
-	public void setSecurityQuestion(String securityQuestion) {
-		this.securityQuestion = securityQuestion;
+	public UserAccount(String emailId, String password) {
+		super();
+		this.emailId = emailId;
+		this.password = password;
 	}
-
-	public String getProfilePictureFile() {
-		return profilePictureFile;
-	}
-
+	
+	
 }

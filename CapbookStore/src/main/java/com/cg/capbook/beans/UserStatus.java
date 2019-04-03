@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class UserStatus {
 	@Id
-	String emailId;
+	int Id;
 	String status;
 	LocalDate dateOfPost;
 	@ManyToOne
@@ -21,12 +21,34 @@ public class UserStatus {
 	@OneToMany(mappedBy="userStatus")
 	private List<UserLike> userLike;
 	
-	public String getEmailId() {
-		return emailId;
+	@OneToMany(mappedBy="userStatus")
+	private List<UserPostComment> userComment;
+	
+	@OneToMany(mappedBy="userStatus")
+	private List<UserTag> userTag;
+	
+	public UserStatus() {
+		super();
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public UserStatus(int id, String status, LocalDate dateOfPost, UserAccount userAccount, List<UserLike> userLike,
+			List<UserPostComment> userComment, List<UserTag> userTag) {
+		super();
+		Id = id;
+		this.status = status;
+		this.dateOfPost = dateOfPost;
+		this.userAccount = userAccount;
+		this.userLike = userLike;
+		this.userComment = userComment;
+		this.userTag = userTag;
+	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
 	}
 
 	public String getStatus() {
@@ -76,17 +98,5 @@ public class UserStatus {
 	public void setUserTag(List<UserTag> userTag) {
 		this.userTag = userTag;
 	}
-
-	@OneToMany(mappedBy="userStatus")
-	private List<UserPostComment> userComment;
-	
-	@OneToMany(mappedBy="userStatus")
-	private List<UserTag> userTag;
-	
-	public UserStatus() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 
 }
