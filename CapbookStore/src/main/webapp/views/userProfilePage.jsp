@@ -47,6 +47,9 @@ element.style {
     float: left;
     width: 70%;
 }
+#map {
+        height: 425px;
+      }
 </style>
 </head>
 <body class="w3-theme-l5">
@@ -94,7 +97,7 @@ element.style {
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><img  src="${userAccount.profilePictureFile}" style="height:106px;width:106px" alt="Avatar"></p>
+         <p class="w3-center"><img  src="${userAccount.profilePictureFile}" style="height:300px;width:300px" alt="Avatar"></p>
          <hr>
          
 <!--IMAGE UPLOAD-->
@@ -104,8 +107,12 @@ element.style {
          <input type="file" name="profilePictureFile" accept="image/*">
   			<input type="submit" value="Upload">
  </form> --%>
-         <p><font><b>${userAccount.firstName } ${userAccount.lastName }</b></font></p>  
-       
+         <p><font><b>Name - ${userAccount.firstName } ${userAccount.lastName }</b></font></p>  
+       <p><font><b>Email - ${userAccount.emailId } </b></font></p> 
+       <p><font><b>Education - ${userAccount.education } </b></font></p> 
+       <p><font><b>City - ${userAccount.city } </b></font></p> 
+       <p><font><b>Hobbies - ${userAccount.hobbies } </b></font></p>
+       <p><font><b>Address - ${userAccount.address } </b></font></p>
         </div>
       </div>
       <br>
@@ -148,7 +155,9 @@ element.style {
         </div>      
       </div>
       <br>
-      
+  
+  <iframe height="400px" width="340px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121068.95056470612!2d73.84322397029956!3d18.510604943408143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1554295011312!5m2!1sen!2sin" width="600" height="450" style="border:0" ></iframe>
+<button onclick="" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Location</button>
       
       <br>
       
