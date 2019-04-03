@@ -149,6 +149,11 @@ public class UserServicesImpl implements UserServices{
 		}
 		else throw new InvalidPasswordException("You have entered inccorect old password");
 	}
+	
+	@Override
+	public UserAccount findAccountByEmailIdForSearch(String emailId) {
+		return userDao.findById(emailId).orElse(null);
+	}
 
 //	@Override
 //	public boolean saveStatus(String emailId, UserStatus status) throws UserNotFoundException, EmptyStatusException {

@@ -56,17 +56,18 @@ public class UserAccount {
 	@OneToMany(mappedBy="userAccount")
 	private List<UserStatus> userStatus;
 	
-	@OneToMany(mappedBy="userAccount")
+	@OneToMany(mappedBy="account")
 	private List<UserFriend> userFriend;
 	
-	@OneToMany(mappedBy="userAccount")
-	private List<UserFriendRequest> friendRequest;
+
+	public UserAccount() {
+		
+	}
 
 	public UserAccount(String emailId, String firstName, String lastName, String gender, String mobileNo,
 			Date dateOfBirth, String password, String securityQuestion, LocalDate currentDate,
 			String profilePictureFile, String education, String city, String state, String address, String hobbies,
-			List<UserPhoto> userPhotos, List<UserStatus> userStatus, List<UserFriend> userFriend,
-			List<UserFriendRequest> friendRequest) {
+			List<UserPhoto> userPhotos, List<UserStatus> userStatus, List<UserFriend> userFriend) {
 		super();
 		this.emailId = emailId;
 		this.firstName = firstName;
@@ -86,11 +87,6 @@ public class UserAccount {
 		this.userPhotos = userPhotos;
 		this.userStatus = userStatus;
 		this.userFriend = userFriend;
-		this.friendRequest = friendRequest;
-	}
-
-	public UserAccount() {
-		super();
 	}
 
 	public String getEmailId() {
@@ -237,28 +233,16 @@ public class UserAccount {
 		this.userFriend = userFriend;
 	}
 
-	public List<UserFriendRequest> getFriendRequest() {
-		return friendRequest;
+	@Override
+	public String toString() {
+		return "UserAccount [emailId=" + emailId + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
+				+ gender + ", mobileNo=" + mobileNo + ", dateOfBirth=" + dateOfBirth + ", password=" + password
+				+ ", securityQuestion=" + securityQuestion + ", currentDate=" + currentDate + ", profilePictureFile="
+				+ profilePictureFile + ", education=" + education + ", city=" + city + ", state=" + state + ", address="
+				+ address + ", hobbies=" + hobbies + ", userPhotos=" + userPhotos + ", userStatus=" + userStatus
+				+ ", userFriend=" + userFriend + "]";
 	}
-
-	public void setFriendRequest(List<UserFriendRequest> friendRequest) {
-		this.friendRequest = friendRequest;
-	}
-
-	public UserAccount(String education, String city, String state, String address, String hobbies) {
-		super();
-		this.education = education;
-		this.city = city;
-		this.state = state;
-		this.address = address;
-		this.hobbies = hobbies;
-	}
-
-	public UserAccount(String emailId, String password) {
-		super();
-		this.emailId = emailId;
-		this.password = password;
-	}
+	
 	
 	
 }

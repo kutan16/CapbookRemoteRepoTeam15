@@ -25,5 +25,6 @@ public interface UserServices {
 	boolean saveStatus(String emailId,UserStatus status)throws UserNotFoundException,EmptyStatusException;;
 	UserAccount updateUserDetails(UserAccount user, String emailId) throws UserNotFoundException;
 	boolean changePassword(String emailId, String oldPassword, String newPassword) throws UserNotFoundException,InvalidPasswordException;
+	UserAccount findAccountByEmailIdForSearch(String emailId);
 
 }

@@ -75,6 +75,14 @@ element.style {
  	</form:form>
   <a href="accountSettingsPage" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">My Account</a>
  </div>
+ <div class="topnav">
+               <div class="search-container">
+                  <form action="/getSearchResults">
+                    <input type="text" placeholder="Search Friends.." name="receiverId">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+            </div>
+          </div>
 </div>
 </div>
 
@@ -156,7 +164,7 @@ element.style {
       </div>
       <br>
   
-  <iframe height="400px" width="340px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121068.95056470612!2d73.84322397029956!3d18.510604943408143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1554295011312!5m2!1sen!2sin" width="600" height="450" style="border:0" ></iframe>
+  <iframe height="400px" width="340px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.483613804495!2d73.69033491530888!3d18.597305271675772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb0f79aa922f%3A0x706d727fbeb8203!2sCapgemini!5e0!3m2!1sen!2sin!4v1554297554386!5m2!1sen!2sin" width="600" height="450" style="border:0" ></iframe>
 <button onclick="" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Location</button>
       
       <br>

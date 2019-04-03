@@ -23,7 +23,7 @@
 						<h2 class="text-center">Forgot Password?</h2>
 						<p>You can reset your password here.</p>
 						<h2 class="text-center">Security Question</h2>
-						<p>Who is Your childhood's best friend?</p>
+						<p>What is your favorite game ?</p>
 						<div class="panel-body">
 
 							<form action="forgotPasswordService" method="post">
@@ -35,7 +35,7 @@
 											<input id="question" name="emailId" placeholder="Email Id"
 											class="form-control" type="email">
                                             <input id="question" name="question" placeholder="Security Answer"
-											class="form-control" type="text">            
+											class="form-control" type="text">   						         
 											<input id="question" name="password" placeholder="New Password"
 											class="form-control" type="password">
 									</div>
