@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -181,15 +182,29 @@ element.style {
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">Let other CapBook Users know what you are upto</h6>
-        <form:form action="status" method="post" modelAttribute="userAccount">
-              <p contenteditable="true" class="w3-border w3-padding"></p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
-        </form:form>
+                         <form action="updatePost" method="post">
+									<textarea rows="4" cols="80" name="postMessage"></textarea>
+									</p>
+									<div class="w3-button w3-theme">
+										<i class="fa fa-pencil"></i> 
+										<input type="submit" class="w3-button w3-theme" value="Post" />
+										
+									</div>
+								</form>
             </div>
           </div>
         </div>
       </div>
       
+       <form action="showAllPosts" method="post">
+			&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" style="font-size:24px"><i class="fa fa-refresh"></i></button>
+		</form> 
+			<div>
+      			<s:forEach var="abc" items="${posts}">
+                	<br>&nbsp;&nbsp;&nbsp;&nbsp;Posted By  : ${abc.userAccount.firstName}<br>
+                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Message - ${abc.postContent}	<br><br>
+                </s:forEach>
+      		</div>
       <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">1 min</span>

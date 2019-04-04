@@ -54,11 +54,14 @@ public class UserAccount {
 	private List<UserPhoto> userPhotos;
 	
 	@OneToMany(mappedBy="userAccount")
+	private List<Post> posts;
+	
+	@OneToMany(mappedBy="userAccount")
 	private List<UserStatus> userStatus;
 	
-	@OneToMany(mappedBy="account")
-	private List<UserFriend> userFriend;
-	
+//	@OneToMany(mappedBy="account")
+//	private List<UserFriend> userFriend;
+//	
 
 	public UserAccount() {
 		
@@ -67,7 +70,7 @@ public class UserAccount {
 	public UserAccount(String emailId, String firstName, String lastName, String gender, String mobileNo,
 			Date dateOfBirth, String password, String securityQuestion, LocalDate currentDate,
 			String profilePictureFile, String education, String city, String state, String address, String hobbies,
-			List<UserPhoto> userPhotos, List<UserStatus> userStatus, List<UserFriend> userFriend) {
+			List<UserPhoto> userPhotos, List<UserStatus> userStatus) {
 		super();
 		this.emailId = emailId;
 		this.firstName = firstName;
@@ -86,7 +89,7 @@ public class UserAccount {
 		this.hobbies = hobbies;
 		this.userPhotos = userPhotos;
 		this.userStatus = userStatus;
-		this.userFriend = userFriend;
+		//this.userFriend = userFriend;
 	}
 
 	public String getEmailId() {
@@ -225,13 +228,13 @@ public class UserAccount {
 		this.userStatus = userStatus;
 	}
 
-	public List<UserFriend> getUserFriend() {
+	/*public List<UserFriend> getUserFriend() {
 		return userFriend;
 	}
 
 	public void setUserFriend(List<UserFriend> userFriend) {
 		this.userFriend = userFriend;
-	}
+	}*/
 
 	@Override
 	public String toString() {
@@ -240,7 +243,7 @@ public class UserAccount {
 				+ ", securityQuestion=" + securityQuestion + ", currentDate=" + currentDate + ", profilePictureFile="
 				+ profilePictureFile + ", education=" + education + ", city=" + city + ", state=" + state + ", address="
 				+ address + ", hobbies=" + hobbies + ", userPhotos=" + userPhotos + ", userStatus=" + userStatus
-				+ ", userFriend=" + userFriend + "]";
+				+ "]";
 	}
 	
 	

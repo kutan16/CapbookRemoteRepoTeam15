@@ -4,13 +4,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-//abcd
+
 @Entity
 public class UserFriend {
-	@Override
-	public String toString() {
-		return "Friend [friendId=" + friendId + ", friendEmailId=" + friendEmailId + ", account=" + account + "]";
-	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int friendId;
@@ -34,5 +31,9 @@ public class UserFriend {
 		super();
 		this.friendEmailId = friendEmailId;
 		this.account = account;
+	}
+	@Override
+	public String toString() {
+		return "Friend [friendId=" + friendId + ", friendEmailId=" + friendEmailId + ", account=" + account + "]";
 	}
 }
