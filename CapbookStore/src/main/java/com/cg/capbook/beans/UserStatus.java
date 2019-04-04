@@ -18,8 +18,8 @@ public class UserStatus {
 	@ManyToOne
 	 UserAccount userAccount;
 	
-	@OneToMany(mappedBy="userStatus")
-	private List<UserLike> userLike;
+//	@OneToMany(mappedBy="userStatus")
+//	private List<UserLike> userLike;
 	
 	@OneToMany(mappedBy="userStatus")
 	private List<UserPostComment> userComment;
@@ -31,14 +31,13 @@ public class UserStatus {
 		super();
 	}
 
-	public UserStatus(int id, String status, LocalDate dateOfPost, UserAccount userAccount, List<UserLike> userLike,
+	public UserStatus(int id, String status, LocalDate dateOfPost, UserAccount userAccount,
 			List<UserPostComment> userComment, List<UserTag> userTag) {
 		super();
 		Id = id;
 		this.status = status;
 		this.dateOfPost = dateOfPost;
 		this.userAccount = userAccount;
-		this.userLike = userLike;
 		this.userComment = userComment;
 		this.userTag = userTag;
 	}
@@ -73,14 +72,6 @@ public class UserStatus {
 
 	public void setUserAccount(UserAccount userAccount) {
 		this.userAccount = userAccount;
-	}
-
-	public List<UserLike> getUserLike() {
-		return userLike;
-	}
-
-	public void setUserLike(List<UserLike> userLike) {
-		this.userLike = userLike;
 	}
 
 	public List<UserPostComment> getUserComment() {

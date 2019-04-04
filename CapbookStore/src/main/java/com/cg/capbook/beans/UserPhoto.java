@@ -22,8 +22,8 @@ public class UserPhoto {
 	@ManyToOne
 	UserAccount userAccount;
 	
-	@OneToMany(mappedBy="userPhoto")
-	private List<UserLike> userLike;
+//	@OneToMany(mappedBy="userPhoto")
+//	private List<UserLike> userLike;
 	
 	@OneToMany(mappedBy="userPhoto")
 	private List<UserPostComment> userComment;
