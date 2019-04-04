@@ -3,8 +3,8 @@ package com.cg.capbook.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cg.capbook.beans.UserLike;
 import com.cg.capbook.beans.Post;
+import com.cg.capbook.beans.UserLike;
 import com.cg.capbook.dao.LikesDao;
 import com.cg.capbook.dao.PostDao;
 @Component("likeServices")

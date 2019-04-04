@@ -75,15 +75,12 @@ element.style {
   <input type="submit" value="Logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white lout">
  	</form:form>
   <a href="accountSettingsPage" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">My Account</a>
- </div>
- <div class="topnav">
-               <div class="search-container">
-                  <form action="/getSearchResults">
-                    <input type="text" placeholder="Search Friends.." name="receiverId">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+ <form action="/getSearchResults">
+                    <button class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" type="submit"><i class="fa fa-search"></i></button>
+<input class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" type="text" placeholder="Search Friends.." name="receiverId">
+                    
                   </form>
-            </div>
-          </div>
+ </div>
 </div>
 </div>
 
@@ -177,6 +174,9 @@ element.style {
     <!-- Middle Column -->
     <div class="w3-col m7">
     
+ <!-- UPDATE POST -->
+ <br>
+ 
       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
@@ -184,7 +184,7 @@ element.style {
               <h6 class="w3-opacity">Let other CapBook Users know what you are upto</h6>
                          <form action="updatePost" method="post">
 									<textarea rows="4" cols="80" name="postMessage"></textarea>
-									</p>
+									
 									<div class="w3-button w3-theme">
 										<i class="fa fa-pencil"></i> 
 										<input type="submit" class="w3-button w3-theme" value="Post" />
@@ -195,16 +195,74 @@ element.style {
           </div>
         </div>
       </div>
+      <br>
+      
+ <!-- SHOW POST -->
+ 
       
        <form action="showAllPosts" method="post">
 			&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" style="font-size:24px"><i class="fa fa-refresh"></i></button>
 		</form> 
-			<div>
-      			<s:forEach var="abc" items="${posts}">
-                	<br>&nbsp;&nbsp;&nbsp;&nbsp;Posted By  : ${abc.userAccount.firstName}<br>
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Message - ${abc.postContent}	<br><br>
+			<div class="w3-row-padding">
+    			<div class="w3-col m12">
+    				<div class="w3-card w3-round w3-white">
+    					<div class="w3-container w3-padding">
+      			<s:forEach var="abc" items="${userAccount.posts}">
+<%-- <br>&nbsp;&nbsp;&nbsp;&nbsp;Posted By  : ${abc.userAccount.firstName}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Message - ${abc.postContent}	<br><br> --%>
+                <div class="w3-container w3-card w3-white w3-round w3-margin">
+						
+						
+						<h4>Posted By  : ${abc.userAccount.emailId}</h4>
+						<br>
+						<hr class="w3-clear">
+						<p>Message  :  ${abc.postContent}</p>
+						<div class="w3-row-padding" style="margin: 0 -16px"></div>
+                  <div class=row>
+							<div class=col></div>
+							<div class=col></div>
+
+							<div class=col></div>
+
+							<div class=col></div>
+
+
+						</div>
+                  <!-- LIKEEE -->
+                  
+                  <form action="updateLikes1" method="post">
+                          <input type="hidden" name="postId" value="${abc.postId}">
+            			 <input type="hidden" name="likedBy" value="${userAccount.emailId}">
+							<button type="submit" class="w3-button w3-theme-d1 w3-margin-bottom">
+							<i class="fa fa-thumbs-up"></i>Like ${abc.totalLikeCount}
+						</button>
+                 </form>
+                  <!-- DISLIKEEE -->
+                  <form action="updateDislikes1" method="post">
+                          <input type="hidden" name="postId" value="${abc.postId}">
+            			 <input type="hidden" name="dislikedBy" value="${userAccount.emailId}">
+							<button type="submit" class="w3-button w3-theme-d1 w3-margin-bottom">
+							<i class="fa fa-thumbs-down"></i>Dislike ${abc.totalDislikeCount}
+						</button>
+                 </form>
+						<button type="button"
+							class="w3-button w3-theme-d2 w3-margin-bottom">
+							<i class="fa fa-comment"></i>  Comment
+						</button>
+				
+				
+					</div>
+                
+                
+                
                 </s:forEach>
       		</div>
+      	</div>
+      </div>
+     </div>
+    <br>	
+      		
+      		
       <!-- <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">1 min</span>
@@ -246,8 +304,7 @@ element.style {
       </div>  -->
       
     <!-- End Middle Column -->
-    </div>
-    
+   
     <!-- <!-- Right Column
     <div class="w3-col m2">
       <div class="w3-card w3-round w3-white w3-center">
@@ -299,7 +356,7 @@ element.style {
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16">
-  <h5>Team 15</h5>
+  <h5>CAPBOOK</h5>
 </footer>
 
  

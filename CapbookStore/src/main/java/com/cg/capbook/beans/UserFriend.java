@@ -1,5 +1,7 @@
  package com.cg.capbook.beans;
- import javax.persistence.Entity;
+ import java.util.List;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,4 +38,5 @@ public class UserFriend {
 	public String toString() {
 		return "Friend [friendId=" + friendId + ", friendEmailId=" + friendEmailId + ", account=" + account + "]";
 	}
+
 }

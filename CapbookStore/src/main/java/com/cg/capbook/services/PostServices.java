@@ -8,5 +8,6 @@ public interface PostServices {
 	Post savePost(String emailId, String postContent);
 	List<Post> ShowAllPosts(String emaildId);
 	public boolean deletePost(int postId);
+	List<Post> ShowAllFriendsPosts(String emailId) throws InvalidEmailException;
 }
 

@@ -1,19 +1,16 @@
 package com.cg.capbook.beans;
 import java.util.List;
-import java.util.Map;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 //abcd
 @Entity
-public class Post {
+public class Post implements Comparable<Post>{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -120,8 +117,12 @@ public class Post {
 	@Override
 	public String toString() {
 		return "Post [postId=" + postId + ", postContent=" + postContent + ", postPic=" + postPic + ", totalLikeCount="
-				+ totalLikeCount + ", totalDislikeCount=" + totalDislikeCount + ", userAccount=" + userAccount
-				+ ", likes=" + likes + ", dislikes=" + dislikes + "]";
+				+ totalLikeCount + ", totalDislikeCount=" + totalDislikeCount + " likes=" + likes + ", dislikes=" + dislikes + "]";
+	}
+	@Override
+	public int compareTo(Post comparePost) {
+		 int compareId=((Post)comparePost).getPostId();
+		 return compareId-this.postId;
 	}
 	
 	

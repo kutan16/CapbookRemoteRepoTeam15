@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cg.capbook.dao.RelationshipDao;
-import com.cg.capbook.exceptions.InvalidEmailException;
-import com.cg.capbook.exceptions.UserNotFoundException;
 import com.cg.capbook.beans.Relationship;
 import com.cg.capbook.beans.UserAccount;
 import com.cg.capbook.beans.UserFriend;
 import com.cg.capbook.dao.FriendsDao;
+import com.cg.capbook.dao.RelationshipDao;
+import com.cg.capbook.exceptions.InvalidEmailException;
+import com.cg.capbook.exceptions.UserNotFoundException;
 
 
 @Component("friendServices")

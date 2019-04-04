@@ -4,12 +4,10 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -54,6 +52,22 @@ public class UserAccount {
 	@OneToMany(mappedBy="userAccount")
 	private List<Post> posts;
 	
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public List<UserFriend> getUserFriend() {
+		return userFriend;
+	}
+
+	public void setUserFriend(List<UserFriend> userFriend) {
+		this.userFriend = userFriend;
+	}
+
 	@OneToMany(mappedBy="userAccount")
 	private List<UserStatus> userStatus;
 	
@@ -226,6 +240,16 @@ public class UserAccount {
 		this.userStatus = userStatus;
 	}
 
+	@Override
+	public String toString() {
+		return "UserAccount [emailId=" + emailId + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
+				+ gender + ", mobileNo=" + mobileNo + ", dateOfBirth=" + dateOfBirth + ", password=" + password
+				+ ", securityQuestion=" + securityQuestion + ", currentDate=" + currentDate + ", profilePictureFile="
+				+ profilePictureFile + ", education=" + education + ", city=" + city + ", state=" + state + ", address="
+				+ address + ", hobbies=" + hobbies + ", userPhotos=" + userPhotos + ", posts=" + posts + ", userStatus="
+				+ userStatus + ", userFriend=" + userFriend + "]";
+	}
+
 	/*public List<UserFriend> getUserFriend() {
 		return userFriend;
 	}
@@ -234,15 +258,7 @@ public class UserAccount {
 		this.userFriend = userFriend;
 	}*/
 
-	@Override
-	public String toString() {
-		return "UserAccount [emailId=" + emailId + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
-				+ gender + ", mobileNo=" + mobileNo + ", dateOfBirth=" + dateOfBirth + ", password=" + password
-				+ ", securityQuestion=" + securityQuestion + ", currentDate=" + currentDate + ", profilePictureFile="
-				+ profilePictureFile + ", education=" + education + ", city=" + city + ", state=" + state + ", address="
-				+ address + ", hobbies=" + hobbies + ", userPhotos=" + userPhotos + ", userStatus=" + userStatus
-				+ "]";
-	}
+	
 	
 	
 	

@@ -39,10 +39,10 @@ public class URIController {
 	public String getLogout() {
 		return "userProfilePage";
 	}
-	@RequestMapping("/accountSettingsPage")
-	public String getAccountSettings() {
-		return "AccountSettingsPage";
-	}
+//	@RequestMapping("/accountSettingsPage")
+//	public String getAccountSettings() {
+//		return "AccountSettingsPage";
+//	}
 
 	@ModelAttribute
 	public UserAccount userAccount() {

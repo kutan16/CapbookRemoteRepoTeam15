@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.cg.capbook.beans.UserDislike;
-import com.cg.capbook.beans.UserLike;
 
 public interface DislikesDao extends JpaRepository<UserDislike, Integer>{
 	/*@Query("from Dislikes where POSTS_POST_ID=:postId and dislikedBy=:dislikedBy")

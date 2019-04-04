@@ -100,7 +100,7 @@ width:350px; height:35px;
       <div class="w3-card w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><img  src="${userAccount.profilePictureFile}" style="height:206px;width:206px" alt="Avatar"></p>
+         <p class="w3-center"><img  src="${userAccount.profilePictureFile}" style="height:206px;width:206px"></p>
          <hr>
          
 <!--IMAGE UPLOAD-->
@@ -186,12 +186,12 @@ width:350px; height:35px;
         <h4>UPDATE USER SETTINGS</h4><br>
         <hr class="w3-clear">
     <form:form action="updateUser"  method="post" modelAttribute="userAccount">
-	Email &nbsp;&nbsp;<form:input path="emailId" style="width:350px; height:30px;" /><br>	
-	Education &nbsp;&nbsp;<form:input path="education" style="width:350px; height:30px;" /><br>	
-	State &nbsp;&nbsp;<form:input path="state" style="width:350px; height:30px;" /><br>
-	City &nbsp;&nbsp;<form:input path="city" style="width:350px; height:30px;" /><br>
-	Address &nbsp;&nbsp;<form:input path="address" style="width:350px; height:30px;" /><br>
-	Hobbies &nbsp;&nbsp;<form:input path="hobbies" style="width:350px; height:30px;" /><br>
+	<div>Email</div><form:input path="emailId" style="width:350px; height:30px;" /><br>	<br>
+	<div>Education</div><form:input path="education" style="width:350px; height:30px;" /><br><br>	
+	<div>State</div><form:input path="state" style="width:350px; height:30px;" /><br><br>
+	<div>City</div><form:input path="city" style="width:350px; height:30px;" /><br><br>
+	<div>Address</div><form:input path="address" style="width:350px; height:30px;" /><br><br>
+	<div>Hobbies</div><form:input path="hobbies" style="width:350px; height:30px;" /><br><br>
 	
 	<%-- Education		<form:input path="data.education" style="width:350px; height:30px;" /><br><br> --%>
 			<br> <input class="button2" type="submit" name="submit"  value="Update" />
@@ -214,9 +214,9 @@ width:350px; height:35px;
         <h4>Change Password</h4><br>
         <hr class="w3-clear">
 <form:form action="changePasswordService"  method="post" modelAttribute="userAccount">
-        <p>Email &nbsp;&nbsp;<form:input path="emailId" style="width:350px; height:30px;" /><br></p>
-        <p>Existing Password &nbsp;&nbsp;<form:input type="password" path="password" style="width:350px; height:30px;" /><br></p>
-        <p>New Password &nbsp;&nbsp;<form:input type="password" path="password" style="width:350px; height:30px;" /><br></p>
+        <p><div>Email</div> &nbsp;&nbsp;<form:input path="emailId" style="width:350px; height:30px;" /><br></p>
+        <p><div>Existing Password</div> &nbsp;&nbsp;<form:input type="password" path="password" style="width:350px; height:30px;" /><br></p>
+        <p><div>New Password</div> &nbsp;&nbsp;<form:input type="password" path="password" style="width:350px; height:30px;" /><br></p>
         <br> <input class="button2" type="submit" name="submit"  value="Update" />
 </form:form>
         

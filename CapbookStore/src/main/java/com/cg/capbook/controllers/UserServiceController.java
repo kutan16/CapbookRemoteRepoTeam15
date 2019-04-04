@@ -1,6 +1,7 @@
 
 package com.cg.capbook.controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -112,27 +113,36 @@ public class UserServiceController {
 
 		return new ModelAndView("userProfilePage", "userAccount", userServices.addPhoto((String) session.getAttribute("emailId"), profilePictureFile));		
 	}
+	
+	@RequestMapping("/accountSettingsPage")
+	public ModelAndView accountSettings(@ModelAttribute UserAccount userAccount, HttpSession session) throws UserNotFoundException {
+
+		return new ModelAndView("AccountSettingsPage", "userAccount", userAccount);		
+	}
 
 //-------------------------------------POST-------------------------------------------------
 	
 	@RequestMapping("/updatePost")
-	public ModelAndView updatePost(@RequestParam String postMessage, HttpSession session)  throws InvalidEmailException,UserNotFoundException {
-		UserAccount userAccount=userServices.findAccountByEmailId((String)session.getAttribute("emailId"));
+	public ModelAndView updatePost(@RequestParam String postMessage, HttpSession session)  throws InvalidEmailException,UserNotFoundException, EmailAlreadyExistException {
 		postServices.savePost((String)session.getAttribute("emailId"), postMessage);
+		UserAccount userAccount=userServices.findAccountByEmailId((String)session.getAttribute("emailId"));
+		
 		List<Post> posts=postServices.ShowAllPosts(userAccount.getEmailId());
-		return new ModelAndView("userProfilePage", "posts", posts);
+		
+		return new ModelAndView("userProfilePage", "userAccount", userAccount);
 	}
 	@RequestMapping("/showAllPosts")
-	public ModelAndView showAllPosts(HttpSession session) throws InvalidEmailException,UserNotFoundException {
+	public ModelAndView showAllPosts(HttpSession session) throws InvalidEmailException,UserNotFoundException, EmailAlreadyExistException {
 		UserAccount userAccount=userServices.findAccountByEmailId((String)session.getAttribute("emailId"));
 		List<Post> posts=postServices.ShowAllPosts(userAccount.getEmailId());
-		return new ModelAndView("userProfilePage", "posts", posts);
+
+		return new ModelAndView("userProfilePage", "userAccount", userAccount);
 	}
 	
 //-----------------------------------Like Dislike ------------------------------------------------
 	
 	@RequestMapping("/updateLikes")
-	public ModelAndView updateLikes(@RequestParam int postId,@RequestParam String likedBy,@SessionAttribute("account") UserAccount account,@SessionAttribute("posts") List<Post> posts) throws InvalidEmailException {
+	public ModelAndView updateLikes(@RequestParam int postId,@RequestParam String likedBy,UserAccount account, List<Post> posts) throws InvalidEmailException {
 		likeServices.updateLikes(postId, likedBy);
 		likeServices.getLikesCount(postId);
 		posts=postServices.ShowAllPosts(account.getEmailId());
@@ -144,6 +154,23 @@ public class UserServiceController {
 		dislikeServices.getDislikesCount(postId);
 		posts=postServices.ShowAllPosts(account.getEmailId());
         return new ModelAndView("myWallPage","posts",posts);
+	}
+	
+	@RequestMapping("/updateLikes1")
+	public ModelAndView updateLikes1(@RequestParam int postId,@RequestParam String likedBy,@ModelAttribute UserAccount account,@ModelAttribute List<Post> posts) throws InvalidEmailException {
+		likeServices.updateLikes(postId, likedBy);
+		likeServices.getLikesCount(postId);
+		List<Post> allposts=postServices.ShowAllFriendsPosts(account.getEmailId());	
+		 Collections.sort(allposts);
+        return new ModelAndView("userProfilePage","posts",allposts);
+	}
+	@RequestMapping("/updateDislikes1")
+	public ModelAndView updateDisLikes1(@RequestParam int postId,@RequestParam String dislikedBy,@ModelAttribute UserAccount account,@ModelAttribute List<Post> posts) throws InvalidEmailException {
+		dislikeServices.updateDislikes(postId, dislikedBy);
+		dislikeServices.getDislikesCount(postId);
+		List<Post> allposts=postServices.ShowAllFriendsPosts(account.getEmailId());	
+		 Collections.sort(allposts);
+        return new ModelAndView("userProfilePage","posts",allposts);
 	}
 
 //-----------------------------------FRIEND Controller--------------------------------------------

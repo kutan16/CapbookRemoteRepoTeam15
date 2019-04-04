@@ -1,8 +1,6 @@
 package com.cg.capbook.beans;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Id;
 @Embeddable
 public class UserData {
 	private String education;
